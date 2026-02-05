@@ -35,6 +35,7 @@ public class ClassDictionary {
 	public static final String BOOLEAN_URI = "pspace:boolean";
 	public static final String BYTE_URI = "pspace:byte";
 	public static final String CHAR_URI = "pspace:char";
+	public static final String SHORT_URI = "pspace:short";
 	public static final String INTEGER_URI = "pspace:int";
 	public static final String LONG_URI = "pspace:long";
 	public static final String FLOAT_URI = "pspace:float";
@@ -56,6 +57,7 @@ public class ClassDictionary {
 		uriToClass.put(BOOLEAN_URI, Boolean.class);
 		uriToClass.put(BYTE_URI, Byte.class);
 		uriToClass.put(CHAR_URI, Character.class);
+		uriToClass.put(SHORT_URI, Short.class);
 		uriToClass.put(INTEGER_URI, Integer.class);
 		uriToClass.put(LONG_URI, Long.class);
 		uriToClass.put(FLOAT_URI, Float.class);
@@ -67,6 +69,7 @@ public class ClassDictionary {
 		classToUri.put(Boolean.class, BOOLEAN_URI);
 		classToUri.put(Byte.class, BYTE_URI);
 		classToUri.put(Character.class, CHAR_URI);
+		classToUri.put(Short.class, SHORT_URI);
 		classToUri.put(Integer.class, INTEGER_URI);
 		classToUri.put(Long.class, LONG_URI);
 		classToUri.put(Float.class, FLOAT_URI);

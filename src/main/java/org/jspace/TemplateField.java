@@ -37,5 +37,5 @@ public interface TemplateField extends Serializable {
 	 * @return <code>true</code> if the object <code>o</code> matches against
 	 *         this field.
 	 */
-	public boolean match(Object o);
+	boolean match(Object o);
 }

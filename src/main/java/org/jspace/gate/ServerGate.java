@@ -32,13 +32,13 @@ import java.net.URI;
  */
 public interface ServerGate {
 
-	public void open() throws IOException;
+	void open() throws IOException;
 
-	public ClientHandler accept() throws IOException;
+	ClientHandler accept() throws IOException;
 
-	public void close() throws IOException;
+	void close() throws IOException;
 
-	public URI getURI();
+	URI getURI();
 
-	public boolean isClosed();
+	boolean isClosed();
 }

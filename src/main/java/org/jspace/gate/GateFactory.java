@@ -23,11 +23,7 @@
 
 package org.jspace.gate;
 
-import java.net.URI;
 import java.util.HashMap;
-import java.util.function.Function;
-
-import org.jspace.io.MarshalFactory;
 
 /**
  * @author loreti

@@ -27,7 +27,6 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.net.URI;
 
-import org.jspace.gate.GateFactory;
 import org.jspace.gate.ServerGate;
 import org.jspace.gate.TcpGateBuilder;
 import org.junit.Test;

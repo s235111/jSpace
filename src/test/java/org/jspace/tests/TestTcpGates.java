@@ -22,23 +22,11 @@
  *******************************************************************************/
 package org.jspace.tests;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.UnknownHostException;
 
-import javax.swing.plaf.SliderUI;
-
-import org.jspace.ActualField;
-import org.jspace.RemoteSpace;
-import org.jspace.SequentialSpace;
-import org.jspace.Space;
-import org.jspace.SpaceRepository;
-import org.jspace.Template;
-import org.jspace.Tuple;
 import org.jspace.gate.KeepServerGate;
 import org.jspace.gate.ServerGate;
 import org.junit.Test;

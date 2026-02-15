@@ -238,52 +238,52 @@ public class ClientMessage {
 
 	public static ClientMessage putRequest(Tuple t) {
 		return new ClientMessage(
-			ClientMessageType.PUT_REQUEST, //REQUEST
-			null,
-			null,
-			null,
-			null,
-			t,
-			null,
-			false,
-			false,
-			null,
-			null,
-			null
+			ClientMessageType.PUT_REQUEST, // messageType
+			null, // interactionMode
+			null, // target
+			null, // statusCode
+			null, // statusMessage
+			t, // tuple
+			null, // template
+			false, // blocking
+			false, // all
+			null, // clientSession
+			null, // serverSession
+			null // clientURI
 		);
 	}
 
 	public static ClientMessage getRequest(Template template, boolean isBlocking, boolean all) {
 		return new ClientMessage(
-			ClientMessageType.GET_REQUEST, //messageType,
-			null, //interactionMode,
-			null, //target,
-			null, //statusCode,
-			null, //statusMessage,
-			null, //tuple,
-			template, //template
-			isBlocking, //isBlocking
-			all, //all
-			null, //clientSession,
-			null, //serverSession,
-			null //clientURI
+			ClientMessageType.GET_REQUEST, // messageType
+			null, // interactionMode
+			null, // target
+			null, // statusCode
+			null, // statusMessage
+			null, // tuple
+			template, // template
+			isBlocking, // blocking
+			all, // all
+			null, // clientSession
+			null, // serverSession
+			null // clientURI
 		);
 	}
 
 	public static ClientMessage queryRequest(Template template, boolean isBlocking, boolean all) {
 		return new ClientMessage(
-			ClientMessageType.QUERY_REQUEST, //messageType,
-			null, //interactionMode,
-			null, //target,
-			null, //statusCode,
-			null, //statusMessage,
-			null, //tuple,
-			template, //template
-			isBlocking, //isBlocking
-			all, //all
-			null, //clientSession,
-			null, //serverSession,
-			null //clientURI
+			ClientMessageType.QUERY_REQUEST, // messageType
+			null, // interactionMode
+			null, // target
+			null, // statusCode
+			null, // statusMessage
+			null, // tuple
+			template, // template
+			isBlocking, // blocking
+			all, // all
+			null, // clientSession
+			null, // serverSession
+			null // clientURI
 		);
 	}
 

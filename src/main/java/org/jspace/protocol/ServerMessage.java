@@ -184,39 +184,39 @@ public class ServerMessage {
 	public static ServerMessage putResponse(boolean status, String clientSession) {
 		if (status) {
 			return new ServerMessage(
-				ServerMessageType.PUT_RESPONSE, // messageType,
-				null, //interactionMode,
-				status, //status
-				ServerMessage.CODE200, //statusCode,
-				ServerMessage.OK_STATUS, //statusMessage,
-				null, //tuples,
-				clientSession, //clientSession,
-				null //serverSession
+				ServerMessageType.PUT_RESPONSE, // messageType
+				null, // interactionMode
+				status, // status
+				ServerMessage.CODE200, // statusCode
+				ServerMessage.OK_STATUS, // statusMessage
+				null, // tuples
+				clientSession, // clientSession
+				null // serverSession
 			);
 		} else {
 			return new ServerMessage(
-				ServerMessageType.PUT_RESPONSE, // messageType,
-				null, //interactionMode,
-				status, //status
-				ServerMessage.CODE400, //statusCode,
-				ServerMessage.BAD_REQUEST, //statusMessage,
-				null, //tuples,
-				clientSession, //clientSession,
-				null //serverSession
+				ServerMessageType.PUT_RESPONSE, // messageType
+				null, // interactionMode
+				status, // status
+				ServerMessage.CODE400, // statusCode
+				ServerMessage.BAD_REQUEST, // statusMessage
+				null, // tuples
+				clientSession, // clientSession
+				null // serverSession
 			);
 		}
 	}
 
 	public static ServerMessage getResponse(List<Object[]> tuples, String clientSession) {
 		return new ServerMessage(
-			ServerMessageType.GET_RESPONSE, // messageType,
-			null, //interactionMode,
-			true, //status
-			ServerMessage.CODE200, //statusCode,
-			ServerMessage.OK_STATUS, //statusMessage,
-			toListOfTuples(tuples), //tuples,
-			clientSession, //clientSession,
-			null //serverSession
+			ServerMessageType.GET_RESPONSE, // messageType
+			null, // interactionMode
+			true, // status
+			ServerMessage.CODE200, // statusCode
+			ServerMessage.OK_STATUS, // statusMessage
+			toListOfTuples(tuples), // tuples
+			clientSession, // clientSession
+			null // serverSession
 		);
 	}
 
@@ -231,27 +231,27 @@ public class ServerMessage {
 
 	public static ServerMessage badRequest(String clientSession) {
 		return new ServerMessage(
-			ServerMessageType.FAILURE, // messageType,
-			null, //interactionMode,
-			false, //status
-			ServerMessage.CODE400, //statusCode,
-			ServerMessage.BAD_REQUEST, //statusMessage,
-			null, //tuples,
-			clientSession, //clientSession,
-			null //serverSession
+			ServerMessageType.FAILURE, // messageType
+			null, // interactionMode
+			false, // status
+			ServerMessage.CODE400, // statusCode
+			ServerMessage.BAD_REQUEST, // statusMessage
+			null, // tuples
+			clientSession, // clientSession
+			null // serverSession
 		);
 	}
 
 	public static ServerMessage internalServerError() {
 		return new ServerMessage(
-			ServerMessageType.FAILURE, // messageType,
-			null, //interactionMode,
-			false, //status
-			ServerMessage.CODE500, //statusCode,
-			ServerMessage.SERVER_ERROR, //statusMessage,
-			null, //tuples,
-			null, //clientSession,
-			null //serverSession
+			ServerMessageType.FAILURE, // messageType
+			null, // interactionMode
+			false, // status
+			ServerMessage.CODE500, // statusCode
+			ServerMessage.SERVER_ERROR, // statusMessage
+			null, // tuples
+			null, // clientSession
+			null // serverSession
 		);
 	}
 }

@@ -29,9 +29,6 @@ import java.net.UnknownHostException;
 import org.jspace.protocol.ClientMessage;
 import org.jspace.protocol.ServerMessage;
 
-/**
- * This interface
- */
 public interface ClientGate {
 
 	void open() throws UnknownHostException, IOException;

@@ -73,17 +73,6 @@ public class ClientMessage {
 
 	private final URI clientURI;
 
-	/**
-	 * @param messageType
-	 * @param interactionMode
-	 * @param statusCode
-	 * @param statusMessage
-	 * @param tuple
-	 * @param template
-	 * @param clientSession
-	 * @param serverSession
-	 * @param clientURI
-	 */
 	public ClientMessage(
 		ClientMessageType messageType,
 		InteractionMode interactionMode,

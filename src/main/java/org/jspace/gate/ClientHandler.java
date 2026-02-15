@@ -28,9 +28,6 @@ import java.io.IOException;
 import org.jspace.protocol.ClientMessage;
 import org.jspace.protocol.ServerMessage;
 
-/**
- *
- */
 public interface ClientHandler {
 
 	ClientMessage receive() throws IOException;

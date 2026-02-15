@@ -28,9 +28,6 @@ package org.jspace;
  */
 public class FormalField implements TemplateField {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

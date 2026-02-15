@@ -27,9 +27,6 @@ package org.jspace;
  */
 public class ActualField implements TemplateField {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

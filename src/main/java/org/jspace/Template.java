@@ -33,9 +33,6 @@ import java.util.Iterator;
  */
 public final class Template implements Iterable<TemplateField>, Serializable {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**

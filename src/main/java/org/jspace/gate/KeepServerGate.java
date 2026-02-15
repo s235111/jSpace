@@ -31,7 +31,6 @@ import org.jspace.io.jSpaceMarshaller;
 
 /**
  * @author loreti
- *
  */
 public class KeepServerGate extends TcpServerGate implements ServerGate {
 

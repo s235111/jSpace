@@ -35,7 +35,6 @@ import org.jspace.protocol.ServerMessage;
 
 /**
  * @author loreti
- *
  */
 public class ConnClientHandler implements ClientHandler {
 

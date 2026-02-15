@@ -38,7 +38,6 @@ import org.jspace.util.Rendezvous;
 
 /**
  * @author loreti
- *
  */
 public class KeepClientGate implements ClientGate {
 

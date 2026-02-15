@@ -27,7 +27,6 @@ import java.util.HashMap;
 
 /**
  * @author loreti
- *
  */
 public class GateFactory {
 

@@ -38,7 +38,6 @@ import org.jspace.gate.GateFactory;
 import org.jspace.gate.ServerGate;
 import org.jspace.protocol.ClientMessage;
 import org.jspace.protocol.ServerMessage;
-import org.jspace.protocol.pSpaceMessage;
 
 /**
  * A repository is a container for a group of spaces each of which is identified by a name.

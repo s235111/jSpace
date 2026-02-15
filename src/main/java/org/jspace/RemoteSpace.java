@@ -26,7 +26,6 @@ package org.jspace;
 import java.io.IOException;
 import java.net.URI;
 import java.net.UnknownHostException;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.NotImplementedException;

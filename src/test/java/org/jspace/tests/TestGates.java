@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,7 +37,7 @@ import org.junit.Test;
  *
  */
 public class TestGates {
-	
+
 	@Test
 	public void testKeepGate() throws IOException {
 		String uri = "tcp://127.0.0.1:9900/?keep";
@@ -55,5 +55,4 @@ public class TestGates {
 		assertEquals(URI.create(uri), gate.getURI());
 		gate.close();
 	}
-
 }

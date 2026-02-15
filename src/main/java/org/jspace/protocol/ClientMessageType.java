@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,9 +26,9 @@ package org.jspace.protocol;
  * Represents message type.
  */
 public enum ClientMessageType {
-	PUT_REQUEST ,
-	GET_REQUEST ,
-	QUERY_REQUEST ,
-	ACK ,
-	FAILURE 
+	PUT_REQUEST,
+	GET_REQUEST,
+	QUERY_REQUEST,
+	ACK,
+	FAILURE,
 }

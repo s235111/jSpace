@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,21 +40,19 @@ import org.jspace.protocol.ServerMessage;
  *
  */
 public class RemoteSpace implements Space {
-	
+
 	private final URI uri;
 	private final ClientGate gate;
 
-	public RemoteSpace( URI uri ) throws UnknownHostException, IOException {
+	public RemoteSpace(URI uri) throws UnknownHostException, IOException {
 		this.uri = uri;
-		this.gate = GateFactory.getInstance().getGateBuilder( uri.getScheme() ).createClientGate(uri);
+		this.gate = GateFactory.getInstance().getGateBuilder(uri.getScheme()).createClientGate(uri);
 		this.gate.open();
 	}
-	
 
 	public RemoteSpace(String uri) throws UnknownHostException, IOException {
 		this(URI.create(uri));
 	}
-
 
 	@Override
 	public int size() {
@@ -62,39 +60,39 @@ public class RemoteSpace implements Space {
 	}
 
 	@Override
-	public boolean put(Object ... fields) throws InterruptedException {		
+	public boolean put(Object... fields) throws InterruptedException {
 		ServerMessage response;
 		try {
 			response = gate.send(ClientMessage.putRequest(new Tuple(fields)));
 		} catch (IOException e) {
 			//TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
-		} 
+		}
 		return response.isSuccessful();
 	}
 
 	@Override
-	public Object[] get(TemplateField ... fields) throws InterruptedException {
-		return _get(new Template(fields),true);
+	public Object[] get(TemplateField... fields) throws InterruptedException {
+		return _get(new Template(fields), true);
 	}
 
 	@Override
-	public Object[]  getp(TemplateField ... fields) throws InterruptedException {
-		return _get(new Template(fields),false);
+	public Object[] getp(TemplateField... fields) throws InterruptedException {
+		return _get(new Template(fields), false);
 	}
 
 	private Object[] _get(Template template, boolean isBlocking) throws InterruptedException {
 		ServerMessage response;
 		try {
-			response = gate.send(ClientMessage.getRequest(template,isBlocking,false));
+			response = gate.send(ClientMessage.getRequest(template, isBlocking, false));
 		} catch (IOException e) {
 			//TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
-		} 
+		}
 
 		if (response.isSuccessful()) {
 			List<Object[]> tuples = response.getTuples();
-			if (tuples.size()==0) {
+			if (tuples.size() == 0) {
 				return null;
 			}
 			return tuples.get(0);
@@ -105,72 +103,72 @@ public class RemoteSpace implements Space {
 	}
 
 	@Override
-	public List<Object[]> getAll(TemplateField ... fields) throws InterruptedException {
+	public List<Object[]> getAll(TemplateField... fields) throws InterruptedException {
 		ServerMessage response;
 		try {
-			response = gate.send(ClientMessage.getRequest(new Template(fields),false,true));
+			response = gate.send(ClientMessage.getRequest(new Template(fields), false, true));
 		} catch (IOException e) {
 			//TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
 		}
+
 		if (response.isSuccessful()) {
 			return response.getTuples();
-		} 
-		
-		return null;		
+		}
+
+		return null;
 	}
 
-
 	@Override
-	public Object[] query(TemplateField ... fields) throws InterruptedException {
+	public Object[] query(TemplateField... fields) throws InterruptedException {
 		return _query(new Template(fields), true);
 	}
 
 	@Override
-	public Object[] queryp(TemplateField ... fields) throws InterruptedException {
+	public Object[] queryp(TemplateField... fields) throws InterruptedException {
 		return _query(new Template(fields), false);
 	}
 
 	private Object[] _query(Template template, boolean isBlocking) throws InterruptedException {
 		ServerMessage response;
 		try {
-			response = gate.send(ClientMessage.queryRequest(template,isBlocking,false));
+			response = gate.send(ClientMessage.queryRequest(template, isBlocking, false));
 		} catch (IOException e) {
 			throw new InterruptedException(e.getMessage());
-		} 
+		}
 
 		if (response.isSuccessful()) {
 			List<Object[]> tuples = response.getTuples();
-			if (tuples.size()==0) {
+			if (tuples.size() == 0) {
 				return null;
 			}
 			return tuples.get(0);
 		}
-		
+
 		if (isBlocking) throw new InterruptedException("remote space does not exist!");
 		return null;
 	}
 
 	@Override
-	public List<Object[]> queryAll(TemplateField ... fields) throws InterruptedException {
+	public List<Object[]> queryAll(TemplateField... fields) throws InterruptedException {
 		ServerMessage response;
 		try {
-			response = gate.send(ClientMessage.queryRequest(new Template(fields),false,true));
+			response = gate.send(ClientMessage.queryRequest(new Template(fields), false, true));
 		} catch (IOException e) {
 			//TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
 		}
+
 		if (response.isSuccessful()) {
 			return response.getTuples();
-		} 
+		}
+
 		return null;
 	}
-
 
 	public URI getUri() {
 		return uri;
 	}
-
 
 	public ClientGate getGate() {
 		return gate;

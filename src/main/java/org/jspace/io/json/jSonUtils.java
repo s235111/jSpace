@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,7 +49,7 @@ import com.google.gson.JsonSerializer;
  *
  */
 public class jSonUtils {
-	
+
 	/**
 	 * Json tag indicating if a template field is a formal or an actual.
 	 */
@@ -66,19 +66,18 @@ public class jSonUtils {
 	 */
 	public static final String VALUE_ID = "value";
 
-	
 	private static jSonUtils instance;
-	
+
 	private final GsonBuilder builder;
-	
+
 	private final ClassDictionary dicionary;
-	
+
 	private jSonUtils() {
 		this.builder = new GsonBuilder();
 		this.dicionary = new ClassDictionary();
 		init();
 	}
-	
+
 	private void init() {
 		builder.registerTypeAdapter(Tuple.class, new TupleSerializer());
 		builder.registerTypeAdapter(Tuple.class, new TupleDeserializer());
@@ -92,12 +91,12 @@ public class jSonUtils {
 		}
 		return instance;
 	}
-	
+
 	public String toString(Object o) {
-		Gson gson = builder.create();		
+		Gson gson = builder.create();
 		return gson.toJson(o);
 	}
-	
+
 	public byte[] toByte(Object o) {
 		return toString(o).getBytes();
 	}
@@ -107,22 +106,21 @@ public class jSonUtils {
 	}
 
 	public <T> T fromString(Class<T> clazz, String message) {
-		Gson gson = builder.create();		
+		Gson gson = builder.create();
 		return gson.fromJson(message, clazz);
 	}
 
-	public void write( PrintWriter w, Object o ) {
+	public void write(PrintWriter w, Object o) {
 		String message = toString(o);
 		w.println(message);
 		w.flush();
 	}
-	
-	public <T> T read( BufferedReader r, Class<T> clazz ) throws IOException {
+
+	public <T> T read(BufferedReader r, Class<T> clazz) throws IOException {
 		String message = r.readLine();
-		return fromString( clazz , message );
+		return fromString(clazz, message);
 	}
-	
-	
+
 	/**
 	 * Serialize an object into a {@link JsonElement}. The object is rendered as
 	 * a {@link JsonObject} containing two attributes:
@@ -132,19 +130,16 @@ public class jSonUtils {
 	 * <li><code>value</code>, containing the {@link JsonElement} associated to
 	 * the serialized object.
 	 * </ul>
-	 * 
+	 *
 	 * When the object will be deserialized, the first attribute will be used to
 	 * identify the object class, while the second one will be used to retrieve
 	 * object status.
-	 * 
-	 * 
-	 * @param o
-	 *            object to serialize
-	 * @param context
-	 *            Context for serialization
+	 *
+	 * @param o       object to serialize
+	 * @param context Context for serialization
 	 * @return a json representation of o
 	 */
-	public  JsonElement jsonFromObject(Object o, JsonSerializationContext context) {
+	public JsonElement jsonFromObject(Object o, JsonSerializationContext context) {
 		JsonObject json = new JsonObject();
 		json.add(jSonUtils.TYPE_ID, new JsonPrimitive(dicionary.getURI(o.getClass())));
 		json.add(jSonUtils.VALUE_ID, context.serialize(o));
@@ -160,12 +155,9 @@ public class jSonUtils {
 	 * <li><code>value</code>, containing the {@link JsonElement} associated to
 	 * the serialized object.
 	 * </ul>
-	 * 
-	 * 
-	 * @param json
-	 *            element to deserialize
-	 * @param context
-	 *            context for serialization
+	 *
+	 * @param json    element to deserialize
+	 * @param context context for serialization
 	 * @return the object represented by json
 	 */
 	public Object objectFromJson(JsonElement json, JsonDeserializationContext context) {
@@ -184,9 +176,8 @@ public class jSonUtils {
 			throw new JsonParseException(e);
 		}
 	}
-	
-	
-	public JsonElement jsonFromTeplate( TemplateField field, JsonSerializationContext context ) {
+
+	public JsonElement jsonFromTeplate(TemplateField field, JsonSerializationContext context) {
 		if (field instanceof ActualField) {
 			ActualField af = (ActualField) field;
 			JsonObject json = new JsonObject();
@@ -201,8 +192,8 @@ public class jSonUtils {
 			return json;
 		}
 	}
-	
-	public TemplateField templateFromJSon( JsonElement json, JsonDeserializationContext context ) {
+
+	public TemplateField templateFromJSon(JsonElement json, JsonDeserializationContext context) {
 		if (!json.isJsonObject()) {
 			throw new JsonParseException("Unexpected JsonElement!");
 		}
@@ -220,13 +211,13 @@ public class jSonUtils {
 		} else {
 			return new ActualField(objectFromJson(jo.get(VALUE_ID), context));
 		}
-	}	
-	
-	public void register( String uri , Class<?> clazz ) {
-		this.register(uri, clazz,null,null);
 	}
-	
-	public <T> void register( String uri , Class<T> clazz , JsonSerializer<T> serializer , JsonDeserializer<T> deserializer ) {
+
+	public void register(String uri, Class<?> clazz) {
+		this.register(uri, clazz, null, null);
+	}
+
+	public <T> void register(String uri, Class<T> clazz, JsonSerializer<T> serializer, JsonDeserializer<T> deserializer) {
 		this.dicionary.register(uri, clazz);
 		if (serializer != null) {
 			builder.registerTypeAdapter(clazz, serializer);
@@ -239,6 +230,4 @@ public class jSonUtils {
 	public Gson getGson() {
 		return builder.create();
 	}
-
-
 }

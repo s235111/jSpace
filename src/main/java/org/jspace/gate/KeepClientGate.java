@@ -61,7 +61,7 @@ public class KeepClientGate implements ClientGate {
 	private Thread outboxThread;
 	private Thread inboxThread;
 
-	public KeepClientGate( jSpaceMarshaller marshaller , String host, int port, String target) {
+	public KeepClientGate(jSpaceMarshaller marshaller, String host, int port, String target) {
 		this.marshaller = marshaller;
 		this.host = host;
 		this.port = port;
@@ -78,7 +78,7 @@ public class KeepClientGate implements ClientGate {
 			if (!this.status) {
 				throw new InterruptedException("Gate is closed!");
 			}
-			sessionId = ""+sessionCounter;
+			sessionId = "" + sessionCounter;
 			sessionCounter++;
 
 			m.setTarget(target);
@@ -114,7 +114,6 @@ public class KeepClientGate implements ClientGate {
 		this.writer.close();
 		inbox.interruptAll();
 	}
-
 
 	private void outboxHandlingMethod() {
 		try {
@@ -170,5 +169,4 @@ public class KeepClientGate implements ClientGate {
 			}
 		}
 	}
-
 }

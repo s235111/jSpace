@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,10 +34,10 @@ import java.util.Iterator;
 public final class Template implements Iterable<TemplateField>, Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * A list of template fields.
 	 */
@@ -45,20 +45,20 @@ public final class Template implements Iterable<TemplateField>, Serializable {
 
 	/**
 	 * Creates a new template starting from its fields.
-	 * 
+	 *
 	 * @param fields
 	 */
-	public Template(TemplateField...fields) {
+	public Template(TemplateField... fields) {
 		this.fields = fields;
 	}
-	
-	public Template(Object...fields) {
+
+	public Template(Object... fields) {
 		this(Template.toTemplateFields(fields));
 	}
 
 	private static TemplateField[] toTemplateFields(Object[] values) {
 		TemplateField[] fields = new TemplateField[values.length];
-		for( int i=0 ; i<values.length ; i++) {
+		for (int i = 0; i < values.length; i++) {
 			if (values[i] instanceof TemplateField) {
 				fields[i] = (TemplateField) values[i];
 			} else {
@@ -70,9 +70,8 @@ public final class Template implements Iterable<TemplateField>, Serializable {
 
 	/**
 	 * Check if tuple <code>t</code> matches the tempalte.
-	 * 
-	 * @param t
-	 *            tuple to match
+	 *
+	 * @param t tuple to match
 	 * @return <code>true</code> if the tuple matches against this template,
 	 *         <code>false</code> otherwise.
 	 */
@@ -91,7 +90,7 @@ public final class Template implements Iterable<TemplateField>, Serializable {
 
 	/**
 	 * Returns the number of fields in the template.
-	 * 
+	 *
 	 * @return number of fields in the template.
 	 */
 	public int length() {
@@ -145,5 +144,4 @@ public final class Template implements Iterable<TemplateField>, Serializable {
 	public TemplateField[] getFields() {
 		return fields;
 	}
-
 }

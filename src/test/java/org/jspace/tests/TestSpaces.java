@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,7 @@ public class TestSpaces {
 		Object[] o = sp.query(new FormalField(Integer.class));
 		assertEquals(1, o.length);
 		assertEquals(1, o[0]);
- 	}
+	}
 
 	@Test
 	public void testSequentialAll() throws InterruptedException {
@@ -56,7 +56,7 @@ public class TestSpaces {
 		assertEquals(2, data.size());
 		assertEquals(1, data.get(0)[0]);
 		assertEquals(3, data.get(1)[0]);
- 	}
+	}
 
 	@Test
 	public void testSequentialQAll() throws InterruptedException {
@@ -68,7 +68,7 @@ public class TestSpaces {
 		assertEquals(2, data.size());
 		assertEquals(1, data.get(0)[0]);
 		assertEquals(3, data.get(1)[0]);
- 	}
+	}
 
 	@Test
 	public void testPile() throws InterruptedException {
@@ -79,7 +79,7 @@ public class TestSpaces {
 		Object[] o = sp.query(new FormalField(Integer.class));
 		assertEquals(1, o.length);
 		assertEquals(3, o[0]);
- 	}
+	}
 
 	@Test
 	public void testPileAll() throws InterruptedException {
@@ -91,7 +91,7 @@ public class TestSpaces {
 		assertEquals(2, data.size());
 		assertEquals(3, data.get(0)[0]);
 		assertEquals(1, data.get(1)[0]);
- 	}
+	}
 
 	@Test
 	public void testPileQAll() throws InterruptedException {
@@ -103,7 +103,7 @@ public class TestSpaces {
 		assertEquals(2, data.size());
 		assertEquals(3, data.get(0)[0]);
 		assertEquals(1, data.get(1)[0]);
- 	}
+	}
 
 	@Test
 	public void testStack() throws InterruptedException {
@@ -114,7 +114,7 @@ public class TestSpaces {
 		Object[] o = sp.query(new FormalField(Integer.class));
 		assertEquals(1, o.length);
 		assertEquals(3, o[0]);
- 	}
+	}
 
 	@Test
 	public void testStackAll() throws InterruptedException {
@@ -125,7 +125,7 @@ public class TestSpaces {
 		LinkedList<Object[]> data = sp.getAll(new FormalField(Integer.class));
 		assertEquals(1, data.size());
 		assertEquals(3, data.get(0)[0]);
- 	}
+	}
 
 	@Test
 	public void testStackQAll() throws InterruptedException {
@@ -136,7 +136,7 @@ public class TestSpaces {
 		LinkedList<Object[]> data = sp.queryAll(new FormalField(Integer.class));
 		assertEquals(1, data.size());
 		assertEquals(3, data.get(0)[0]);
- 	}
+	}
 
 	@Test
 	public void testQueue() throws InterruptedException {
@@ -147,7 +147,7 @@ public class TestSpaces {
 		Object[] o = sp.query(new FormalField(Integer.class));
 		assertEquals(1, o.length);
 		assertEquals(1, o[0]);
- 	}
+	}
 
 	@Test
 	public void testQueueAll() throws InterruptedException {
@@ -158,7 +158,7 @@ public class TestSpaces {
 		LinkedList<Object[]> data = sp.getAll(new FormalField(Integer.class));
 		assertEquals(1, data.size());
 		assertEquals(1, data.get(0)[0]);
- 	}
+	}
 
 	@Test
 	public void testQueueQAll() throws InterruptedException {
@@ -169,6 +169,5 @@ public class TestSpaces {
 		LinkedList<Object[]> data = sp.queryAll(new FormalField(Integer.class));
 		assertEquals(1, data.size());
 		assertEquals(1, data.get(0)[0]);
- 	}
-
+	}
 }

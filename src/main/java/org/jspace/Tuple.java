@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@ import java.util.Iterator;
 public final class Tuple implements Iterable<Object>, Serializable {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -45,9 +45,8 @@ public final class Tuple implements Iterable<Object>, Serializable {
 
 	/**
 	 * Creates a new tuple.
-	 * 
-	 * @param fields
-	 *            fields of new created tuple.
+	 *
+	 * @param fields fields of new created tuple.
 	 */
 	public Tuple(Object... fields) {
 		this.fields = fields;
@@ -55,7 +54,7 @@ public final class Tuple implements Iterable<Object>, Serializable {
 
 	/**
 	 * Returns the tuple length.
-	 * 
+	 *
 	 * @return the tuple length.
 	 */
 	public int length() {
@@ -64,9 +63,8 @@ public final class Tuple implements Iterable<Object>, Serializable {
 
 	/**
 	 * Returns the element at index <code>i</code>.
-	 * 
-	 * @param i
-	 *            element index.
+	 *
+	 * @param i element index.
 	 * @return the element at index <code>i</code>.
 	 */
 	public Object getElementAt(int i) {
@@ -74,13 +72,10 @@ public final class Tuple implements Iterable<Object>, Serializable {
 	}
 
 	/**
-	 * Returns the class <code>c</code> of the element with index <code>i</code>
-	 * .
-	 * 
-	 * @param i
-	 *            element index
-	 * @return the class <code>c</code> of the element with index <code>i</code>
-	 *         .
+	 * Returns the class <code>c</code> of the element with index <code>i</code>.
+	 *
+	 * @param i element index
+	 * @return the class <code>c</code> of the element with index <code>i</code>.
 	 */
 	public Class<?> getTypeAt(int i) {
 		return fields[i].getClass();
@@ -91,11 +86,9 @@ public final class Tuple implements Iterable<Object>, Serializable {
 	 * This method is equivalent to <code>c.cast(getElementAt(i))</code>. A
 	 * <code>ClassCastException</code> is thrown if the <code>i</code>-th
 	 * element of the tuple is not an instance if <code>c</code>.
-	 * 
-	 * @param c
-	 *            expected class
-	 * @param i
-	 *            element index
+	 *
+	 * @param c expected class
+	 * @param i element index
 	 * @return the instance of class <code>c</code> at element <code>i</code>.
 	 */
 	public <T> T getElementAt(Class<T> c, int i) {
@@ -111,8 +104,8 @@ public final class Tuple implements Iterable<Object>, Serializable {
 
 	/**
 	 * Checks if the element at position <code>i</code> is instance of <code>c</code>.
-	 * 
-	 * @param c Class 
+	 *
+	 * @param c Class
 	 * @param i Element index
 	 * @return true if element at <code>i</code> is instance of <code>c</code>.
 	 */
@@ -157,12 +150,10 @@ public final class Tuple implements Iterable<Object>, Serializable {
 			@Override
 			public void remove() {
 			}
-
-		}; 
+		};
 	}
 
 	public Object[] getTuple() {
-		return Arrays.copyOf(this.fields,this.fields.length);
+		return Arrays.copyOf(this.fields, this.fields.length);
 	}
-
 }

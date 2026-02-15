@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,13 +27,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
 public class QueueSpace extends SequentialSpace {
-	
+
 	public QueueSpace() {
 		this(-1);
 	}
-	
+
 	public QueueSpace(int bound) {
 		super(bound);
 	}
@@ -42,36 +41,35 @@ public class QueueSpace extends SequentialSpace {
 	protected void addTuple(Tuple tuple) {
 		tuples.add(tuple);
 	}
-	
+
 	@Override
-	protected Tuple findTuple(Template template,boolean toRemove) {
+	protected Tuple findTuple(Template template, boolean toRemove) {
 		Tuple t = tuples.peek();
-		if ((t!=null)&&(template.match(t))) {
+		if ((t != null) && (template.match(t))) {
 			if (toRemove) {
 				tuples.poll();
 			}
 			return t;
 		} else {
 			return null;
-		}		
+		}
 	}
 
 	@Override
-	protected LinkedList<Object[]> findAllTuples(Template template,boolean toRemove) {
+	protected LinkedList<Object[]> findAllTuples(Template template, boolean toRemove) {
 		LinkedList<Object[]> result = new LinkedList<Object[]>();
 		Iterator<Tuple> tuplesIterator = tuples.iterator();
 		Tuple t;
-		while (tuplesIterator.hasNext()){
+		while (tuplesIterator.hasNext()) {
 			t = tuplesIterator.next();
 			if (template.match(t)) {
 				result.add(t.getTuple());
 				if (toRemove)
 					tuplesIterator.remove();
 			} else {
-				break ;
+				break;
 			}
 		}
 		return result;
 	}
-
 }

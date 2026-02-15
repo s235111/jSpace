@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,17 +38,16 @@ public class KeepServerGate extends TcpServerGate implements ServerGate {
 	private static final String KEEP_CODE = "keep";
 
 	public KeepServerGate(jSpaceMarshaller marshaller, InetSocketAddress address, int backlog) {
-		super(marshaller,address,backlog);
+		super(marshaller, address, backlog);
 	}
 
 	@Override
 	protected ClientHandler getClientHandler(Socket socket) throws IOException {
-		return new KeepClientHandler(marshaller,socket);
+		return new KeepClientHandler(marshaller, socket);
 	}
 
 	@Override
 	protected String getConnectionCode() {
 		return KEEP_CODE;
 	}
-
 }

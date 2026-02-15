@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,11 +35,11 @@ import org.jspace.io.jSpaceMarshaller;
  *
  */
 public class TcpGateBuilder implements GateBuilder {
-	
+
 	public static final int DEFAULT_BACKLOG = 10;
 	public static final int DEFAULT_PORT = 9990;
 	public static final String DEFAULT_MODE = "keep";
-	
+
 	public static final String KEEP_MODE = "keep";
 	public static final String CONN_MODE = "conn";
 	public static final String PUSH_MODE = "PUSH";
@@ -59,7 +59,7 @@ public class TcpGateBuilder implements GateBuilder {
 		if (port < 0) {
 			port = DEFAULT_PORT;
 		}
-		HashMap<String,String> query = GateFactory.parseQuery(uri.getQuery());
+		HashMap<String, String> query = GateFactory.parseQuery(uri.getQuery());
 		jSpaceMarshaller marshaller = getMarshaller(query.get(GateFactory.LANGUAGE_QUERY_ELEMENT));
 		//String mode = query.getOrDefault(GateFactory.MODE_QUERY_ELEMENT,DEFAULT_MODE).toUpperCase();
 		if (query.containsKey(KEEP_MODE)) {
@@ -83,25 +83,24 @@ public class TcpGateBuilder implements GateBuilder {
 		if (port < 0) {
 			port = DEFAULT_PORT;
 		}
-		HashMap<String,String> query = GateFactory.parseQuery(uri.getQuery());
+		HashMap<String, String> query = GateFactory.parseQuery(uri.getQuery());
 		jSpaceMarshaller marshaller = getMarshaller(query.get(GateFactory.LANGUAGE_QUERY_ELEMENT));
-		String mode = query.getOrDefault(GateFactory.MODE_QUERY_ELEMENT,DEFAULT_MODE).toUpperCase();
+		String mode = query.getOrDefault(GateFactory.MODE_QUERY_ELEMENT, DEFAULT_MODE).toUpperCase();
 		if (query.containsKey(KEEP_MODE)) {
-			return new KeepServerGate(marshaller,new InetSocketAddress(host, port),DEFAULT_BACKLOG);
+			return new KeepServerGate(marshaller, new InetSocketAddress(host, port), DEFAULT_BACKLOG);
 		}
 		if (query.containsKey(CONN_MODE)) {
-			return new ConnServerGate(marshaller, new InetSocketAddress(host, port),DEFAULT_BACKLOG);
+			return new ConnServerGate(marshaller, new InetSocketAddress(host, port), DEFAULT_BACKLOG);
 		}
 		//TODO: Add here other modes!
-		return new KeepServerGate(marshaller,new InetSocketAddress(host, port),DEFAULT_BACKLOG);
+		return new KeepServerGate(marshaller, new InetSocketAddress(host, port), DEFAULT_BACKLOG);
 	}
 
-	public jSpaceMarshaller getMarshaller( String code ) {
+	public jSpaceMarshaller getMarshaller(String code) {
 		MarshalFactory mf = MarshalFactory.getInstance();
 		if (code == null) {
 			code = MarshalFactory.DEFAULT_LANGAUGE;
-		} 
+		}
 		return mf.getMarshaller(code);
 	}
-	
 }

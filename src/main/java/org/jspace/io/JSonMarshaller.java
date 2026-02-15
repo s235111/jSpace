@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,6 @@ import java.io.Writer;
 import org.jspace.io.jSpaceMarshaller;
 import org.jspace.io.json.jSonUtils;
 
-
 /**
  * @author loreti
  *
@@ -40,7 +39,7 @@ import org.jspace.io.json.jSonUtils;
 public class JSonMarshaller implements jSpaceMarshaller {
 
 	private jSonUtils utils = jSonUtils.getInstance();
-	
+
 	public byte[] toByte(Object o) {
 		return utils.toByte(o);
 	}
@@ -48,13 +47,12 @@ public class JSonMarshaller implements jSpaceMarshaller {
 	public <T> T fromByte(Class<T> clazz, byte[] data) {
 		return utils.fromByte(clazz, data);
 	}
-	
+
 	public <T> T read(Class<T> clazz, BufferedReader reader) throws IOException {
 		return utils.read(reader, clazz);
 	}
 
 	public void write(Object o, PrintWriter writer) {
-		utils.write(writer,o);
+		utils.write(writer, o);
 	}
-
 }

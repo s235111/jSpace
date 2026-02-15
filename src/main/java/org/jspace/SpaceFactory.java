@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,19 +24,18 @@ package org.jspace;
 
 /**
  * Factory used to build spaces.
- * 
+ *
  * @author loreti
  *
  */
 public interface SpaceFactory {
-	
-	/**
-	 * Create a new space with a given max number of elements inside. If <code>bound</code> 
-	 * is <=0 then the space is unbounded.
-	 *  
-	 * @param bound a limit on the number of elements in the space.
-	 * @return a new space. 
-	 */
-	public Space newSpace( int bound );
 
+	/**
+	 * Create a new space with a given max number of elements inside. If <code>bound</code>
+	 * is <=0 then the space is unbounded.
+	 *
+	 * @param bound a limit on the number of elements in the space.
+	 * @return a new space.
+	 */
+	public Space newSpace(int bound);
 }

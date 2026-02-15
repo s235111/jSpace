@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,14 +32,13 @@ import java.net.URI;
  */
 public interface ServerGate {
 
-	public void open( ) throws IOException;
-	
-	public ClientHandler accept( ) throws IOException;
-	
-	public void close( ) throws IOException;
-	
+	public void open() throws IOException;
+
+	public ClientHandler accept() throws IOException;
+
+	public void close() throws IOException;
+
 	public URI getURI();
-	
+
 	public boolean isClosed();
-	
 }

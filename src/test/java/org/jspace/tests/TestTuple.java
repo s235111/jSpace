@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,7 +40,7 @@ public class TestTuple {
 		assertEquals("1", t.getElementAt(0));
 	}
 
-	@Test(expected = IndexOutOfBoundsException.class) 
+	@Test(expected = IndexOutOfBoundsException.class)
 	public void testGetElementAtIntException() {
 		Tuple t = new Tuple("1");
 		t.getElementAt(2);
@@ -49,44 +49,43 @@ public class TestTuple {
 	@Test
 	public void testGetTypeAt() {
 		Tuple t = new Tuple("1");
-		assertEquals(String.class,t.getTypeAt(0));
+		assertEquals(String.class, t.getTypeAt(0));
 	}
 
-	@Test(expected = IndexOutOfBoundsException.class) 
+	@Test(expected = IndexOutOfBoundsException.class)
 	public void testGetTypeAtException() {
 		Tuple t = new Tuple("1");
 		t.getElementAt(2);
 	}
 
-
 	@Test
 	public void testGetElementAtClassOfTInt() {
 		Tuple t = new Tuple("1");
-		assertEquals("1", t.getElementAt(String.class,0));
+		assertEquals("1", t.getElementAt(String.class, 0));
 	}
 
-	@Test(expected = ClassCastException.class) 
+	@Test(expected = ClassCastException.class)
 	public void testGetElementAtClassOfTIntCastException() {
 		Tuple t = new Tuple("1");
-		t.getElementAt(Integer.class,0);
+		t.getElementAt(Integer.class, 0);
 	}
 
-	@Test(expected = IndexOutOfBoundsException.class) 
+	@Test(expected = IndexOutOfBoundsException.class)
 	public void testGetElementAtClassOfTIntIndexException() {
 		Tuple t = new Tuple("1");
-		t.getElementAt(String.class,2);
+		t.getElementAt(String.class, 2);
 	}
 
 	@Test
 	public void testIsInstanceTrue() {
 		Tuple t = new Tuple("1");
-		assertTrue(t.isInstance(String.class,0));
+		assertTrue(t.isInstance(String.class, 0));
 	}
 
 	@Test
 	public void testIsInstanceFalse() {
 		Tuple t = new Tuple("1");
-		assertFalse(t.isInstance(Integer.class,0));
+		assertFalse(t.isInstance(Integer.class, 0));
 	}
 
 	@Test
@@ -98,8 +97,7 @@ public class TestTuple {
 
 	@Test
 	public void testToString() {
-		Tuple t1 = new Tuple( "1" , 1 , true );
-		assertEquals("[1, 1, true]",t1.toString());
+		Tuple t1 = new Tuple("1", 1, true);
+		assertEquals("[1, 1, true]", t1.toString());
 	}
-
 }

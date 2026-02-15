@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,23 +37,20 @@ import org.jspace.io.jSpaceMarshaller;
  *
  */
 public class ConnServerGate extends TcpServerGate implements ServerGate {
-	
+
 	private static final String CONN_CODE = "conn";
-	
+
 	public ConnServerGate(jSpaceMarshaller marshaller, InetSocketAddress address, int backlog) {
-		super(marshaller,address,backlog);
+		super(marshaller, address, backlog);
 	}
 
 	@Override
 	protected ClientHandler getClientHandler(Socket socket) throws IOException {
-		return new ConnClientHandler(marshaller,socket);
+		return new ConnClientHandler(marshaller, socket);
 	}
 
 	@Override
 	protected String getConnectionCode() {
 		return CONN_CODE;
 	}
-	
-
-
 }

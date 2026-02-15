@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,15 +32,14 @@ import org.jspace.protocol.ServerMessage;
  *
  */
 public interface ClientHandler {
-	
-	public ClientMessage receive( ) throws IOException;
-	
-	public boolean send( ServerMessage m );
-	
+
+	public ClientMessage receive() throws IOException;
+
+	public boolean send(ServerMessage m);
+
 	public boolean isActive();
 
 	public void close() throws IOException;
 
 	public boolean isClosed();
-
 }

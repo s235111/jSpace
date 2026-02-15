@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,21 +21,21 @@
  * THE SOFTWARE.
  *******************************************************************************/
 /**
- * 
+ *
  * jSpace: a Java Framework for Programming Concurrent and Distributed Applications with Spaces
- * 
- * http://pspace.github.io/jSpace/	
+ *
+ * http://pspace.github.io/jSpace/
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
- * 
+ *
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
- *      Alberto Lluch Lafuente
- *      Michele Loreti
- *      Francesco Terrosi
+ * - Alberto Lluch Lafuente
+ * - Michele Loreti
+ * - Francesco Terrosi
  */
 package org.jspace.protocol;
 
@@ -50,27 +50,27 @@ import org.jspace.Tuple;
 public class ClientMessage {
 
 	private final ClientMessageType messageType;
-	
+
 	private final InteractionMode interactionMode;
-	
+
 	private String target;
-	
+
 	private final boolean blocking;
-	
+
 	private final boolean all;
-	
+
 	private final String statusCode;
-	
+
 	private final String statusMessage;
-	
+
 	private final Tuple tuple;
-	
+
 	private final Template template;
-	
+
 	private String clientSession;
-	
+
 	private final String serverSession;
-	
+
 	private final URI clientURI;
 
 	/**
@@ -84,18 +84,20 @@ public class ClientMessage {
 	 * @param serverSession
 	 * @param clientURI
 	 */
-	public ClientMessage(ClientMessageType messageType, 
-			InteractionMode interactionMode, 
-			String target,
-			String statusCode,
-			String statusMessage, 
-			Tuple tuple, 
-			Template template,
-			boolean blocking,
-			boolean all,
-			String clientSession, 
-			String serverSession,
-			URI clientURI) {
+	public ClientMessage(
+		ClientMessageType messageType,
+		InteractionMode interactionMode,
+		String target,
+		String statusCode,
+		String statusMessage,
+		Tuple tuple,
+		Template template,
+		boolean blocking,
+		boolean all,
+		String clientSession,
+		String serverSession,
+		URI clientURI
+	) {
 		super();
 		this.messageType = messageType;
 		this.interactionMode = interactionMode;
@@ -110,7 +112,7 @@ public class ClientMessage {
 		this.blocking = blocking;
 		this.all = all;
 	}
-	
+
 	public ClientMessageType getMessageType() {
 		return messageType;
 	}
@@ -226,15 +228,15 @@ public class ClientMessage {
 	@Override
 	public String toString() {
 		return "ClientMessage [" + (messageType != null ? "messageType=" + messageType + ", " : "")
-				+ (interactionMode != null ? "interactionMode=" + interactionMode + ", " : "")
-				+ (target != null ? "target=" + target + ", " : "") + "blocking=" + blocking + ", "
-				+ (statusCode != null ? "statusCode=" + statusCode + ", " : "")
-				+ (statusMessage != null ? "statusMessage=" + statusMessage + ", " : "")
-				+ (tuple != null ? "tuple=" + tuple + ", " : "")
-				+ (template != null ? "template=" + template + ", " : "")
-				+ (clientSession != null ? "clientSession=" + clientSession + ", " : "")
-				+ (serverSession != null ? "serverSession=" + serverSession + ", " : "")
-				+ (clientURI != null ? "clientURI=" + clientURI : "") + "]";
+			+ (interactionMode != null ? "interactionMode=" + interactionMode + ", " : "")
+			+ (target != null ? "target=" + target + ", " : "") + "blocking=" + blocking + ", "
+			+ (statusCode != null ? "statusCode=" + statusCode + ", " : "")
+			+ (statusMessage != null ? "statusMessage=" + statusMessage + ", " : "")
+			+ (tuple != null ? "tuple=" + tuple + ", " : "")
+			+ (template != null ? "template=" + template + ", " : "")
+			+ (clientSession != null ? "clientSession=" + clientSession + ", " : "")
+			+ (serverSession != null ? "serverSession=" + serverSession + ", " : "")
+			+ (clientURI != null ? "clientURI=" + clientURI : "") + "]";
 	}
 
 	public String getTarget() {
@@ -248,50 +250,50 @@ public class ClientMessage {
 	public static ClientMessage putRequest(Tuple t) {
 		return new ClientMessage(
 			ClientMessageType.PUT_REQUEST, //REQUEST
-			null, 
-			null, 
-			null, 
-			null, 
-			t, 
-			null, 
-			false, 
+			null,
+			null,
+			null,
+			null,
+			t,
+			null,
 			false,
-			null, 
-			null, 
+			false,
+			null,
+			null,
 			null
 		);
 	}
 
 	public static ClientMessage getRequest(Template template, boolean isBlocking, boolean all) {
 		return new ClientMessage(
-			ClientMessageType.GET_REQUEST, //messageType, 
-			null, //interactionMode, 
-			null, //target, 
-			null, //statusCode, 
-			null, //statusMessage, 
-			null, //tuple, 
+			ClientMessageType.GET_REQUEST, //messageType,
+			null, //interactionMode,
+			null, //target,
+			null, //statusCode,
+			null, //statusMessage,
+			null, //tuple,
 			template, //template
 			isBlocking, //isBlocking
 			all, //all
-			null, //clientSession, 
-			null, //serverSession, 
+			null, //clientSession,
+			null, //serverSession,
 			null //clientURI
 		);
 	}
 
 	public static ClientMessage queryRequest(Template template, boolean isBlocking, boolean all) {
 		return new ClientMessage(
-			ClientMessageType.QUERY_REQUEST, //messageType, 
-			null, //interactionMode, 
-			null, //target, 
-			null, //statusCode, 
-			null, //statusMessage, 
-			null, //tuple, 
+			ClientMessageType.QUERY_REQUEST, //messageType,
+			null, //interactionMode,
+			null, //target,
+			null, //statusCode,
+			null, //statusMessage,
+			null, //tuple,
 			template, //template
 			isBlocking, //isBlocking
 			all, //all
-			null, //clientSession, 
-			null, //serverSession, 
+			null, //clientSession,
+			null, //serverSession,
 			null //clientURI
 		);
 	}
@@ -307,6 +309,4 @@ public class ClientMessage {
 	public void setClientSession(String clientSession) {
 		this.clientSession = clientSession;
 	}
-
-
 }

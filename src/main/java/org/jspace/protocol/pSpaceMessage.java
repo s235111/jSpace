@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,16 +23,13 @@
 package org.jspace.protocol;
 
 /**
- * This class represents a generic message 
+ * This class represents a generic message
  */
 public class pSpaceMessage {
-	
-	private ClientMessageType messageType;
-	
-	private String sessionId;
-	
-	public pSpaceMessage( ClientMessageType messageType ) {
-		
-	}
 
+	private ClientMessageType messageType;
+
+	private String sessionId;
+
+	public pSpaceMessage(ClientMessageType messageType) {}
 }

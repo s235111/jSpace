@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,40 +26,40 @@ package org.jspace;
 import java.util.Random;
 
 public class RandomSpace extends SequentialSpace {
-	
+
 	private Random random;
 
 	public RandomSpace() {
-		this(-1,new Random());
+		this(-1, new Random());
 	}
-	
+
 	public RandomSpace(int bound) {
-		this(bound,new Random());
+		this(bound, new Random());
 	}
-	
+
 	public RandomSpace(long seed) {
-		this(-1,new Random(seed));
+		this(-1, new Random(seed));
 	}
-	
+
 	public RandomSpace(int bound, long seed) {
-		this(bound,new Random(seed));
+		this(bound, new Random(seed));
 	}
-	
+
 	public RandomSpace(int bound, Random r) {
 		super(bound);
 		this.random = r;
 	}
-	
+
 	// New version: does not provide uniform distribution on matching tuples but is more performant
-	protected Tuple findTuple(Template template,boolean toRemove) {
+	protected Tuple findTuple(Template template, boolean toRemove) {
 		if (tuples.size() == 0) return null;
 		Tuple t;
 		int j = 0;
-		int startI =  random.nextInt(tuples.size());
+		int startI = random.nextInt(tuples.size());
 		for (int i = 0; i < tuples.size(); i++) {
 			// randomise starting index
-			j = (startI+i)%tuples.size();
-			t = tuples.get((startI+i)%tuples.size());
+			j = (startI + i) % tuples.size();
+			t = tuples.get((startI + i) % tuples.size());
 			if (template.match(t)) {
 				if (toRemove) {
 					tuples.remove(j);
@@ -68,12 +68,11 @@ public class RandomSpace extends SequentialSpace {
 			}
 		}
 		return null;
-		
 	}
-	
+
 	// Previous version: less performant but provides uniform choice on the set of matching tuples
 	/*
-	protected Tuple findTuple(Template template,boolean toRemove) {
+	protected Tuple findTuple(Template template, boolean toRemove) {
 		ArrayList<Tuple> data = new ArrayList<>();
 		Iterator<Tuple> tuplesIterator = tuples.iterator();
 		while (tuplesIterator.hasNext()) {
@@ -92,5 +91,4 @@ public class RandomSpace extends SequentialSpace {
 		return t;
 	}
 	*/
-	
 }

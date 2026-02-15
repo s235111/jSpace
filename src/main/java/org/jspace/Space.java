@@ -37,7 +37,7 @@ public interface Space {
 	/**
 	 * Returns the number of tuples that are stored in the space.
 	 */
-	public int size();
+	int size();
 
 	/**
 	 * Adds a tuple in the space.
@@ -47,7 +47,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public boolean put(Object... fields) throws InterruptedException;
+	boolean put(Object... fields) throws InterruptedException;
 
 	/**
 	 * Retrieves (and remove) a tuple matching the requested template. A template is rendered as
@@ -65,7 +65,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public Object[] get(TemplateField... fields) throws InterruptedException;
+	Object[] get(TemplateField... fields) throws InterruptedException;
 
 	/**
 	 * Retrieves (and remove) a tuple matching the requested template. A template is rendered as
@@ -83,7 +83,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public Object[] getp(TemplateField... fields) throws InterruptedException;
+	Object[] getp(TemplateField... fields) throws InterruptedException;
 
 	/**
 	 * Retrieves (and remove) all the tuples matching a template. If no matching tuple is found, the
@@ -94,7 +94,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public List<Object[]> getAll(TemplateField... fields) throws InterruptedException;
+	List<Object[]> getAll(TemplateField... fields) throws InterruptedException;
 
 	/**
 	 * Reads (without removing) a tuple matching the requested template. A template is rendered as
@@ -112,7 +112,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public Object[] query(TemplateField... fields) throws InterruptedException;
+	Object[] query(TemplateField... fields) throws InterruptedException;
 
 	/**
 	 * Reads (without removing) a tuple matching the requested template. A template is rendered as
@@ -130,7 +130,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public Object[] queryp(TemplateField... fields) throws InterruptedException;
+	Object[] queryp(TemplateField... fields) throws InterruptedException;
 
 	/**
 	 * Reads (without removing) all the tuples matching the requested template. A template is rendered as
@@ -146,7 +146,7 @@ public interface Space {
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.
 	 */
-	public List<Object[]> queryAll(TemplateField... fields) throws InterruptedException;
+	List<Object[]> queryAll(TemplateField... fields) throws InterruptedException;
 
 // TODO: The following methods will be included in future implementations.
 //	public Space map(Function<Tuple, Tuple> f) throws InterruptedException;

@@ -33,13 +33,13 @@ import org.jspace.protocol.ServerMessage;
  */
 public interface ClientHandler {
 
-	public ClientMessage receive() throws IOException;
+	ClientMessage receive() throws IOException;
 
-	public boolean send(ServerMessage m);
+	boolean send(ServerMessage m);
 
-	public boolean isActive();
+	boolean isActive();
 
-	public void close() throws IOException;
+	void close() throws IOException;
 
-	public boolean isClosed();
+	boolean isClosed();
 }

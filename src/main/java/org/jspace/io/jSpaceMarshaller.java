@@ -33,11 +33,11 @@ import java.io.PrintWriter;
  */
 public interface jSpaceMarshaller {
 
-	public byte[] toByte(Object o);
+	byte[] toByte(Object o);
 
-	public <T> T fromByte(Class<T> clazz, byte[] data);
+	<T> T fromByte(Class<T> clazz, byte[] data);
 
-	public <T> T read(Class<T> clazz, BufferedReader reader) throws IOException;
+	<T> T read(Class<T> clazz, BufferedReader reader) throws IOException;
 
-	public void write(Object o, PrintWriter writer);
+	void write(Object o, PrintWriter writer);
 }

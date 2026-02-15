@@ -28,5 +28,5 @@ package org.jspace.gate;
  */
 public interface ExceptionLogger {
 
-	public void logException(Exception e);
+	void logException(Exception e);
 }

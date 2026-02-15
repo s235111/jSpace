@@ -72,20 +72,6 @@ public class TestRemoteSpace {
 		sr.closeGates();
 	}
 
-	/*
-	@Test
-	public void testKeepPutWrongMethod() throws UnknownHostException, IOException, InterruptedException {
-		SpaceRepository sr = new SpaceRepository();
-		sr.addGate("tcp://127.0.0.1:9990/?keep");
-		Space aSpace = new SequentialSpace();
-		sr.add("target", aSpace);
-		RemoteSpace rs = new RemoteSpace("tcp://127.0.0.1:9990/target?conn");
-		assertFalse(rs.put(new Tuple(1, 2, 3).getTuple()));
-		assertFalse(rs.put(new Tuple(1, 2, 3).getTuple()));
-		sr.closeGates();
-	}
-	*/
-
 	@Test
 	public void testKeepGetWrongSpace() throws UnknownHostException, IOException, InterruptedException {
 		SpaceRepository sr = new SpaceRepository();

@@ -173,26 +173,6 @@ public class SequentialSpace implements Space {
 		return findAllTuples(new Template(Arrays.copyOf(fields, fields.length)), false);
 	}
 
-//	@Override
-//	public Space map(Function<Tuple, Tuple> f) throws InterruptedException {
-//		LinkedList<Tuple> result = new LinkedList<Tuple>();
-//		Tuple temp;
-//		for (Tuple t : this.tuples) {
-//			temp = f.apply(t);
-//			result.add(temp);
-//		}
-//		return new SequentialSpace(result);
-//	}
-//
-//	@Override
-//	public <T1> T1 reduce(BiFunction<Tuple, T1, T1> f, Comparator<Tuple> comp, T1 v) throws InterruptedException {
-//		LinkedList<Tuple> temp = queryAll();
-//		temp.sort(comp);
-//		for (Tuple t : temp)
-//			v = f.apply(t, v);
-//		return v;
-//	}
-
 	@Override
 	public synchronized int size() {
 		return tuples.size();

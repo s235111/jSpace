@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,10 +28,10 @@ package org.jspace;
 public class ActualField implements TemplateField {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Field value.
 	 */
@@ -39,12 +39,11 @@ public class ActualField implements TemplateField {
 
 	/**
 	 * Create an actual field with value value
-	 * 
-	 * @param value
-	 *            field value
+	 *
+	 * @param value field value
 	 */
 	public ActualField(Object value) {
-		if (value == null) { 
+		if (value == null) {
 			throw new NullPointerException();
 		}
 		this.value = value;
@@ -52,7 +51,7 @@ public class ActualField implements TemplateField {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.cmg.scel.knowledge.TemplateField#match(java.lang.Object)
 	 */
 	@Override
@@ -64,7 +63,7 @@ public class ActualField implements TemplateField {
 	public boolean equals(Object obj) {
 		if (obj instanceof ActualField) {
 			return value.equals(((ActualField) obj).value);
-		} 
+		}
 		return false;
 	}
 
@@ -81,5 +80,4 @@ public class ActualField implements TemplateField {
 	public Object getValue() {
 		return value;
 	}
-
 }

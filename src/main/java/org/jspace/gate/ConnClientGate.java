@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,50 +41,47 @@ import org.jspace.protocol.ServerMessage;
  *
  */
 public class ConnClientGate implements ClientGate {
-	
-	
+
 	private final jSpaceMarshaller marshaller;
 	private String host;
 	private int port;
 	private String target;
 
-	public ConnClientGate( jSpaceMarshaller marshaller , String host, int port, String target) {
+	public ConnClientGate(jSpaceMarshaller marshaller, String host, int port, String target) {
 		this.marshaller = marshaller;
 		this.host = host;
 		this.port = port;
 		this.target = target;
 	}
-	
+
 	@Override
 	public ServerMessage send(ClientMessage m) throws InterruptedException, UnknownHostException, IOException {
 		ConnInteractionHandler handler = new ConnInteractionHandler();
-		new Thread( () -> handler.send(m) ).start();
+		new Thread(() -> handler.send(m)).start();
 		return handler.getResponce();
 	}
 
 	@Override
-	public void open() throws UnknownHostException, IOException {
-	}
+	public void open() throws UnknownHostException, IOException {}
 
 	@Override
-	public void close() throws IOException {
-	}
-	
+	public void close() throws IOException {}
+
 	public class ConnInteractionHandler {
-		
+
 		private ServerMessage message;
 		private IOException exception;
 		private Socket socket;
 		private BufferedReader reader;
 		private PrintWriter writer;
-		
-		public ConnInteractionHandler( ) throws UnknownHostException, IOException {
+
+		public ConnInteractionHandler() throws UnknownHostException, IOException {
 			socket = new Socket(host, port);
-			reader = new BufferedReader( new InputStreamReader(socket.getInputStream()) );
+			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			writer = new PrintWriter(socket.getOutputStream());
 		}
-		
-		public void send( ClientMessage m ) {
+
+		public void send(ClientMessage m) {
 			m.setTarget(target);
 			marshaller.write(m, writer);
 			try {
@@ -93,19 +90,19 @@ public class ConnClientGate implements ClientGate {
 				setException(e);
 			}
 		}
-		
-		public synchronized void setMessage( ServerMessage message ) {
+
+		public synchronized void setMessage(ServerMessage message) {
 			this.message = message;
 			notifyAll();
 		}
-		
-		public synchronized void setException( IOException exception ) {
+
+		public synchronized void setException(IOException exception) {
 			this.exception = exception;
 			notifyAll();
 		}
-		
-		public synchronized ServerMessage getResponce( ) throws InterruptedException, IOException  {
-			while ((message == null)&&(exception==null)) {
+
+		public synchronized ServerMessage getResponce() throws InterruptedException, IOException {
+			while ((message == null) && (exception == null)) {
 				wait();
 			}
 			if (exception != null) {
@@ -114,5 +111,4 @@ public class ConnClientGate implements ClientGate {
 			return message;
 		}
 	}
-
 }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,14 +30,14 @@ import java.util.HashMap;
  *
  */
 public class MarshalFactory {
-	
+
 	public final static String LANGUAGE_PARAMETER = "lang";
-	
+
 	public final static String JSON_CODE = "json";
 
 	public final static String DEFAULT_LANGAUGE = JSON_CODE;
 
-	private final HashMap<String,Class<? extends jSpaceMarshaller>> table;
+	private final HashMap<String, Class<? extends jSpaceMarshaller>> table;
 
 	private MarshalFactory() {
 		this.table = new HashMap<>();
@@ -45,10 +45,10 @@ public class MarshalFactory {
 	}
 
 	private void init() {
-		table.put("json", JSonMarshaller.class); 
+		table.put("json", JSonMarshaller.class);
 	}
-	
-	public jSpaceMarshaller getMarshaller( String code ) {
+
+	public jSpaceMarshaller getMarshaller(String code) {
 		try {
 			return table.get(code).newInstance();
 		} catch (InstantiationException | IllegalAccessException e) {
@@ -57,13 +57,13 @@ public class MarshalFactory {
 		}
 		return null;
 	}
-	
-	public void register( String code , Class<? extends jSpaceMarshaller> clazz ) {
+
+	public void register(String code, Class<? extends jSpaceMarshaller> clazz) {
 		table.put(code, clazz);
 	}
-	
+
 	private static MarshalFactory instance;
-	
+
 	public static MarshalFactory getInstance() {
 		if (instance == null) {
 			instance = new MarshalFactory();
@@ -74,5 +74,4 @@ public class MarshalFactory {
 	public jSpaceMarshaller getDeaultMarshaller() {
 		return getMarshaller(DEFAULT_LANGAUGE);
 	}
-	
 }

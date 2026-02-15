@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,11 +24,11 @@
 package org.jspace;
 
 public class PileSpace extends SequentialSpace {
-	
+
 	public PileSpace() {
 		this(-1);
 	}
-	
+
 	public PileSpace(int bound) {
 		super(bound);
 	}
@@ -37,6 +37,4 @@ public class PileSpace extends SequentialSpace {
 	protected void addTuple(Tuple tuple) {
 		tuples.push(tuple);
 	}
-
-	
 }

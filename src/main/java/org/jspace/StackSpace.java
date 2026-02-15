@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,7 @@
 package org.jspace;
 
 public class StackSpace extends QueueSpace {
-	
+
 	/**
 	 * Create an unbounded space based on stack.
 	 */
@@ -34,6 +34,7 @@ public class StackSpace extends QueueSpace {
 
 	/**
 	 * Create a space based on stack of max size <code>bound</code>.
+	 *
 	 * @param bound
 	 */
 	public StackSpace(int bound) {
@@ -44,5 +45,4 @@ public class StackSpace extends QueueSpace {
 	protected void addTuple(Tuple tuple) {
 		tuples.push(tuple);
 	}
-
 }

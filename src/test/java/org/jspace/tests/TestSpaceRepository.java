@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,7 +35,7 @@ public class TestSpaceRepository {
 		SpaceRepository repository = new SpaceRepository();
 		assertNotNull(repository);
 	}
-	
+
 	@Test
 	public void testEmpty() {
 		SpaceRepository repository = new SpaceRepository();
@@ -45,43 +45,42 @@ public class TestSpaceRepository {
 	@Test
 	public void testSize() {
 		SpaceRepository repository = new SpaceRepository();
-		assertEquals(0,repository.size());
+		assertEquals(0, repository.size());
 	}
 
 	@Test
 	public void addNewSpace() {
 		SpaceRepository repository = new SpaceRepository();
-		repository.add("name",new SequentialSpace());
+		repository.add("name", new SequentialSpace());
 		assertFalse(repository.isEmpty());
 	}
-	
+
 	@Test
 	public void getUknown() {
 		SpaceRepository repository = new SpaceRepository();
 		assertNull(repository.get("aspace"));
 	}
-	
+
 	@Test
 	public void addAndGet() {
 		SpaceRepository repository = new SpaceRepository();
-		repository.add("aspace",new SequentialSpace());
+		repository.add("aspace", new SequentialSpace());
 		assertNotNull(repository.get("aspace"));
 	}
-	
+
 	@Test(expected = IllegalStateException.class)
 	public void addTwoSpacesWithTheSameName() {
 		SpaceRepository repository = new SpaceRepository();
-		repository.add("aspace",new SequentialSpace());
-		repository.add("aspace",new SequentialSpace());
+		repository.add("aspace", new SequentialSpace());
+		repository.add("aspace", new SequentialSpace());
 	}
-	
+
 	@Test
 	public void addAndRemove() {
 		SpaceRepository repository = new SpaceRepository();
-		repository.add("aspace",new SequentialSpace());
+		repository.add("aspace", new SequentialSpace());
 		assertNotNull(repository.get("aspace"));
 		repository.remove("aspace");
 		assertNull(repository.get("aspace"));
 	}
-	
 }

@@ -36,8 +36,8 @@ public abstract class TcpServerGate implements ServerGate {
 	}
 
 	@Override
-	public ClientHandler accept() throws IOException {		
-		if ((this.isClosed)||(this.ssocket == null)) {
+	public ClientHandler accept() throws IOException {
+		if ((this.isClosed) || (this.ssocket == null)) {
 			//throw new IllegalStateException("Gate is not opened!");
 			return null;
 		}
@@ -48,29 +48,28 @@ public abstract class TcpServerGate implements ServerGate {
 
 	@Override
 	public synchronized void close() throws IOException {
-		if ((this.isClosed)||(this.ssocket==null)) {
+		if ((this.isClosed) || (this.ssocket == null)) {
 			//throw new IllegalStateException("Gate is not opened!");
-			return ;
+			return;
 		}
 		this.isClosed = true;
-		this.ssocket.close();		
+		this.ssocket.close();
 	}
 
 	@Override
 	public URI getURI() {
 		try {
-			return new URI("tcp:/"+address+"/"+"?"+getConnectionCode());
+			return new URI("tcp:/" + address + "/" + "?" + getConnectionCode());
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	protected abstract String getConnectionCode();
 
 	@Override
 	public synchronized boolean isClosed() {
 		return isClosed;
 	}
-
 }

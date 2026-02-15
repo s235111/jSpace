@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,13 +34,12 @@ import java.io.Writer;
  *
  */
 public interface jSpaceMarshaller {
-	
+
 	public byte[] toByte(Object o);
-	
+
 	public <T> T fromByte(Class<T> clazz, byte[] data);
 
 	public <T> T read(Class<T> clazz, BufferedReader reader) throws IOException;
 
 	public void write(Object o, PrintWriter writer);
-
 }

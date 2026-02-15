@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,7 @@ package org.jspace;
 public class FormalField implements TemplateField {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class FormalField implements TemplateField {
 
 	/**
 	 * Creates a template field matching any value of type <code>type</code>.
-	 * 
+	 *
 	 * @param type Class of expected field.
 	 */
 	public FormalField(Class<?> type) {
@@ -49,15 +49,15 @@ public class FormalField implements TemplateField {
 
 	/***
 	 * Returns <code>true</code> if parameters <code>o</code> is instance of <code>this.type</code>.
-	 * 
+	 *
 	 * @see org.pspaces.jspace.cmg.jresp.knowledge.TemplateField#match(java.lang.Object)
 	 */
 	@Override
 	public boolean match(Object o) {
 		Object value = o;
-		if (value == null) {//TODO: Are 'null' values allowed in Tuples? 
+		if (value == null) { //TODO: Are 'null' values allowed in Tuples?
 			return false;
-		} 
+		}
 		if (value instanceof ActualField) {
 			value = ((ActualField) value).getValue();
 		}
@@ -79,11 +79,10 @@ public class FormalField implements TemplateField {
 
 	@Override
 	public String toString() {
-		return "?{" + type.getName()+ "}";
+		return "?{" + type.getName() + "}";
 	}
 
 	public Class<?> getFormalFieldType() {
 		return type;
 	}
-
 }

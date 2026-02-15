@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,17 +43,17 @@ public class TestFieldMatching {
 		ActualField f1 = new ActualField(1);
 		assertFalse(f1.match(2));
 	}
-	
+
 	@Test
 	public void testActualCollection() {
 		LinkedList<Integer> l1 = new LinkedList<Integer>();
-		l1.add(1);		
+		l1.add(1);
 		LinkedList<Integer> l2 = new LinkedList<Integer>();
 		l2.add(1);
 		ActualField f1 = new ActualField(l1);
 		assertTrue(f1.match(l2));
 	}
-	
+
 	@Test
 	public void testActualEmptyCollection() {
 		LinkedList<String> l1 = new LinkedList<String>();
@@ -61,7 +61,6 @@ public class TestFieldMatching {
 		ActualField f1 = new ActualField(l1);
 		assertTrue(f1.match(l2));
 	}
-
 
 	@Test
 	public void testFormalTrue() {
@@ -74,5 +73,4 @@ public class TestFieldMatching {
 		FormalField f1 = new FormalField(Integer.class);
 		assertFalse(f1.match("1"));
 	}
-
 }

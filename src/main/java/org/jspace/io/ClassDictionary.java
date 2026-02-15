@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@ import org.jspace.Tuple;
  *
  */
 public class ClassDictionary {
-	
+
 	public static final String BOOLEAN_URI = "pspace:boolean";
 	public static final String BYTE_URI = "pspace:byte";
 	public static final String CHAR_URI = "pspace:char";
@@ -43,12 +43,10 @@ public class ClassDictionary {
 	public static final String STRING_URI = "pspace:string";
 	public static final String TUPLE_URI = "pspace:tuple";
 	public static final String TEMPLATE_URI = "pspace:template";
-	
-	
 
-	private final HashMap<String,Class<?>> uriToClass = new HashMap<>();
-	private final HashMap<Class<?>,String> classToUri = new HashMap<>();
-	
+	private final HashMap<String, Class<?>> uriToClass = new HashMap<>();
+	private final HashMap<Class<?>, String> classToUri = new HashMap<>();
+
 	public ClassDictionary() {
 		init();
 	}
@@ -65,7 +63,7 @@ public class ClassDictionary {
 		uriToClass.put(STRING_URI, String.class);
 		uriToClass.put(TUPLE_URI, Tuple.class);
 		uriToClass.put(TEMPLATE_URI, Template.class);
-		
+
 		classToUri.put(Boolean.class, BOOLEAN_URI);
 		classToUri.put(Byte.class, BYTE_URI);
 		classToUri.put(Character.class, CHAR_URI);
@@ -74,11 +72,11 @@ public class ClassDictionary {
 		classToUri.put(Long.class, LONG_URI);
 		classToUri.put(Float.class, FLOAT_URI);
 		classToUri.put(Double.class, DOUBLE_URI);
-		classToUri.put(String.class, STRING_URI);	
+		classToUri.put(String.class, STRING_URI);
 		classToUri.put(Tuple.class, TUPLE_URI);
 		classToUri.put(Template.class, TEMPLATE_URI);
 	}
-	
+
 	public void register(String uri, Class<?> clazz) {
 		if (uriToClass.containsKey(uri)) {
 			throw new IllegalArgumentException("Duplicated uri!");
@@ -87,24 +85,24 @@ public class ClassDictionary {
 			throw new IllegalArgumentException("Duplicated class!");
 		}
 	}
-	
-	public boolean isRegistered( String uri ) {
+
+	public boolean isRegistered(String uri) {
 		return uriToClass.containsKey(uri);
 	}
-	
-	public boolean isRegistered( Class<?> clazz ) {
+
+	public boolean isRegistered(Class<?> clazz) {
 		return classToUri.containsKey(clazz);
 	}
-	
-	public Class<?> getClass( String uri ) throws ClassNotFoundException {
+
+	public Class<?> getClass(String uri) throws ClassNotFoundException {
 		Class<?> toReturn = uriToClass.get(uri);
 		if (toReturn == null) {
 			toReturn = Class.forName(uri);
 		}
 		return toReturn;
 	}
-	
-	public String getURI( Class<?> clazz ) {
+
+	public String getURI(Class<?> clazz) {
 		String toReturn = classToUri.get(clazz);
 		if (toReturn == null) {
 			toReturn = clazz.getName();

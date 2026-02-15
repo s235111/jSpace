@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,19 +34,19 @@ import org.jspace.io.MarshalFactory;
  *
  */
 public class GateFactory {
-	
+
 	public final static String LANGUAGE_QUERY_ELEMENT = "lang";
 	public final static String MODE_QUERY_ELEMENT = "mode";
-	
-	public final static String TCP_PROTOCOL = "tcp";			
-	public final static String UDP_PROTOCOL = "udp";			
-	public final static String HTTP_PROTOCOL = "http";			
+
+	public final static String TCP_PROTOCOL = "tcp";
+	public final static String UDP_PROTOCOL = "udp";
+	public final static String HTTP_PROTOCOL = "http";
 	public final static String HTTPS_PROTOCOL = "https";
-	private static GateFactory instance;				
-	
-	private HashMap<String,GateBuilder> gateBuilders; 
-	
-	private GateFactory( ) {
+	private static GateFactory instance;
+
+	private HashMap<String, GateBuilder> gateBuilders;
+
+	private GateFactory() {
 		this.gateBuilders = new HashMap<>();
 		init();
 	}
@@ -55,19 +55,19 @@ public class GateFactory {
 		this.gateBuilders.put(TCP_PROTOCOL, new TcpGateBuilder());
 		this.gateBuilders.put(UDP_PROTOCOL, new UdpGateBuilder());
 	}
-	
-	public static HashMap<String,String> parseQuery(String query) {
+
+	public static HashMap<String, String> parseQuery(String query) {
 		String[] elements = query.split("&");
-		HashMap<String,String> values = new HashMap<>();
+		HashMap<String, String> values = new HashMap<>();
 		for (String string : elements) {
 			String[] pair = string.split("=");
-			if (pair.length>1) {
+			if (pair.length > 1) {
 				values.put(pair[0], pair[1]);
 			} else {
 				values.put(pair[0], "");
 			}
 		}
-		return values;		
+		return values;
 	}
 
 	public static GateFactory getInstance() {
@@ -80,8 +80,8 @@ public class GateFactory {
 	public GateBuilder getGateBuilder(String scheme) {
 		return gateBuilders.get(scheme);
 	}
-	
-	public void register( String scheme, GateBuilder builder) {
+
+	public void register(String scheme, GateBuilder builder) {
 		gateBuilders.put(scheme, builder);
 	}
 }

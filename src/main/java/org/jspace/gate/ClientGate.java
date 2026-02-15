@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,14 +30,13 @@ import org.jspace.protocol.ClientMessage;
 import org.jspace.protocol.ServerMessage;
 
 /**
- * This interface 
+ * This interface
  */
 public interface ClientGate {
-	
-	public void open() throws UnknownHostException, IOException;
-	
-	public ServerMessage send( ClientMessage m ) throws UnknownHostException, IOException, InterruptedException;
-	
-	public void close() throws IOException;
 
+	public void open() throws UnknownHostException, IOException;
+
+	public ServerMessage send(ClientMessage m) throws UnknownHostException, IOException, InterruptedException;
+
+	public void close() throws IOException;
 }

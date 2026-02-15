@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,8 +39,7 @@ import com.google.gson.JsonParseException;
 public class TupleDeserializer implements JsonDeserializer<Tuple> {
 
 	@Override
-	public Tuple deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-			throws JsonParseException {
+	public Tuple deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 		if (!json.isJsonArray()) {
 			throw new JsonParseException("Unexpected JsonElement!");
 		}
@@ -52,5 +51,4 @@ public class TupleDeserializer implements JsonDeserializer<Tuple> {
 		}
 		return new Tuple(data);
 	}
-
 }

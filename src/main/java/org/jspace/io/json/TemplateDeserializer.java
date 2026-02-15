@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,15 +37,14 @@ import com.google.gson.JsonParseException;
 /**
  * This class is used to deserialize a {@link Template} from a
  * {@link JsonElement} (see {@link JsonDeserializer}).
- * 
+ *
  * @author Michele Loreti
  *
  */
 public class TemplateDeserializer implements JsonDeserializer<Template> {
 
 	@Override
-	public Template deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
-			throws JsonParseException {
+	public Template deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 		if (!json.isJsonArray()) {
 			throw new JsonParseException("Unexpected JsonElement!");
 		}
@@ -61,5 +60,4 @@ public class TemplateDeserializer implements JsonDeserializer<Template> {
 		}
 		return new Template(data);
 	}
-
 }

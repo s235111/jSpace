@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,22 +23,19 @@
 
 package org.jspace;
 
-
 import java.io.Serializable;
 
 /**
- * Identifies a generic template field. 
+ * Identifies a generic template field.
  */
 public interface TemplateField extends Serializable {
 
 	/**
 	 * Checks if the object <code>o</code> matches against this field.
 	 *
-	 * @param o
-	 *            a generic object
+	 * @param o a generic object
 	 * @return <code>true</code> if the object <code>o</code> matches against
 	 *         this field.
 	 */
 	public boolean match(Object o);
-
 }

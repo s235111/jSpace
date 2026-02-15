@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,6 @@ import java.net.URI;
 public interface GateBuilder {
 
 	public ClientGate createClientGate(URI uri);
-	
+
 	public ServerGate createServerGate(URI uri);
-	
 }

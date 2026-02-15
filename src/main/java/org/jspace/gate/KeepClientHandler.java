@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,8 +50,8 @@ public class KeepClientHandler implements ClientHandler {
 	public KeepClientHandler(jSpaceMarshaller marshaller, Socket client) throws IOException {
 		this.marshaller = marshaller;
 		this.client = client;
-		this.reader = new BufferedReader( new InputStreamReader( client.getInputStream() ) );
-		this.writer = new PrintWriter( client.getOutputStream() );
+		this.reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+		this.writer = new PrintWriter(client.getOutputStream());
 	}
 
 	/* (non-Javadoc)
@@ -60,7 +60,7 @@ public class KeepClientHandler implements ClientHandler {
 	@Override
 	public ClientMessage receive() throws IOException {
 		ClientMessage message = marshaller.read(ClientMessage.class, reader);
-		isActive  = (message != null);
+		isActive = (message != null);
 		return message;
 	}
 
@@ -95,6 +95,4 @@ public class KeepClientHandler implements ClientHandler {
 	public boolean isClosed() {
 		return isClosed;
 	}
-
-	
 }

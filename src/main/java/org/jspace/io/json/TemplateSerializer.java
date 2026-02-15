@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included 
+ * Copyright (c) 2017 Michele Loreti and the jSpace Developers (see the included
  * authors file).
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,7 +35,7 @@ import com.google.gson.JsonSerializer;
 /**
  * This class is used to serialize a {@link Template} into a {@link JsonElement}
  * (see {@link JsonSerializer}).
- * 
+ *
  * @author Michele Loreti
  *
  */
@@ -50,6 +50,4 @@ public class TemplateSerializer implements JsonSerializer<Template> {
 		}
 		return toReturn;
 	}
-	
-	
 }

@@ -22,15 +22,9 @@
  *******************************************************************************/
 package org.jspace.tests;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
-import org.jspace.ActualField;
-import org.jspace.FormalField;
-import org.jspace.Template;
-import org.jspace.TemplateField;
-import org.jspace.Tuple;
+import org.jspace.*;
 import org.junit.Test;
 
 public class TestTemplate {

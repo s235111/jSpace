@@ -22,22 +22,12 @@
  *******************************************************************************/
 package org.jspace.tests;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
 
-import org.jspace.ActualField;
-import org.jspace.RemoteSpace;
-import org.jspace.SequentialSpace;
-import org.jspace.Space;
-import org.jspace.SpaceRepository;
-import org.jspace.Template;
-import org.jspace.Tuple;
+import org.jspace.*;
 import org.junit.Test;
 
 public class TestRemoteSpace {

@@ -60,7 +60,6 @@ public class TcpGateBuilder implements GateBuilder {
 		}
 		HashMap<String, String> query = GateFactory.parseQuery(uri.getQuery());
 		jSpaceMarshaller marshaller = getMarshaller(query.get(GateFactory.LANGUAGE_QUERY_ELEMENT));
-		//String mode = query.getOrDefault(GateFactory.MODE_QUERY_ELEMENT,DEFAULT_MODE).toUpperCase();
 		if (query.containsKey(KEEP_MODE)) {
 			return new KeepClientGate(marshaller, host, port, target);
 		}

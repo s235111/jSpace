@@ -50,7 +50,6 @@ public class RandomSpace extends SequentialSpace {
 		this.random = r;
 	}
 
-	// New version: does not provide uniform distribution on matching tuples but is more performant
 	protected Tuple findTuple(Template template, boolean toRemove) {
 		if (tuples.size() == 0) return null;
 		Tuple t;
@@ -69,26 +68,4 @@ public class RandomSpace extends SequentialSpace {
 		}
 		return null;
 	}
-
-	// Previous version: less performant but provides uniform choice on the set of matching tuples
-	/*
-	protected Tuple findTuple(Template template, boolean toRemove) {
-		ArrayList<Tuple> data = new ArrayList<>();
-		Iterator<Tuple> tuplesIterator = tuples.iterator();
-		while (tuplesIterator.hasNext()) {
-			Tuple t = tuplesIterator.next();
-			if (template.match(t)) {
-				data.add(t);
-			}
-		}
-		if (data.isEmpty()) {
-			return null;
-		}
-		Tuple t = data.get(random.nextInt(data.size()));
-		if (toRemove) {
-			tuples.remove(t);
-		}
-		return t;
-	}
-	*/
 }

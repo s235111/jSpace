@@ -34,7 +34,6 @@ public abstract class TcpServerGate implements ServerGate {
 	@Override
 	public ClientHandler accept() throws IOException {
 		if ((this.isClosed) || (this.ssocket == null)) {
-			//throw new IllegalStateException("Gate is not opened!");
 			return null;
 		}
 		return getClientHandler(ssocket.accept());
@@ -45,7 +44,6 @@ public abstract class TcpServerGate implements ServerGate {
 	@Override
 	public synchronized void close() throws IOException {
 		if ((this.isClosed) || (this.ssocket == null)) {
-			//throw new IllegalStateException("Gate is not opened!");
 			return;
 		}
 		this.isClosed = true;

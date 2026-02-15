@@ -173,18 +173,6 @@ public class RemoteSpace implements Space {
 		return gate;
 	}
 
-//	@Override
-//	public Space map(Function<Tuple, Tuple> f) throws InterruptedException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public <T1> T1 reduce(BiFunction<Tuple, T1, T1> f, Comparator<Tuple> comp, T1 v) throws InterruptedException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
 	public void close() throws IOException {
 		gate.close();
 	}

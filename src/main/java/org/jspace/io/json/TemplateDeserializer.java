@@ -28,11 +28,7 @@ import java.lang.reflect.Type;
 import org.jspace.Template;
 import org.jspace.TemplateField;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
+import com.google.gson.*;
 
 /**
  * This class is used to deserialize a {@link Template} from a

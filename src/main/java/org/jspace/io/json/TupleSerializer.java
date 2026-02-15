@@ -26,11 +26,7 @@ import java.lang.reflect.Type;
 
 import org.jspace.Tuple;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
+import com.google.gson.*;
 
 /**
  * This class is used to serialize a {@link Tuple} into a {@link JsonElement}

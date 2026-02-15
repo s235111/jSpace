@@ -31,11 +31,7 @@ import org.jspace.FormalField;
 import org.jspace.Template;
 import org.jspace.Tuple;
 import org.jspace.io.json.jSonUtils;
-import org.jspace.protocol.ClientMessage;
-import org.jspace.protocol.ClientMessageType;
-import org.jspace.protocol.InteractionMode;
-import org.jspace.protocol.ServerMessage;
-import org.jspace.protocol.ServerMessageType;
+import org.jspace.protocol.*;
 import org.junit.Test;
 
 import com.google.gson.Gson;

@@ -26,11 +26,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.LinkedList;
 
-import org.jspace.FormalField;
-import org.jspace.PileSpace;
-import org.jspace.QueueSpace;
-import org.jspace.SequentialSpace;
-import org.jspace.StackSpace;
+import org.jspace.*;
 import org.junit.Test;
 
 public class TestSpaces {

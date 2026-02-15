@@ -1,4 +1,4 @@
-The goSpace Developers:
+The jSpace developers:
 
 - [Michele Loreti](http://www.micheleloreti.comn/)
 - [Alberto Lluch Lafuente](http://www.imm.dtu.dk/~albl/)

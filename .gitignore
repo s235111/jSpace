@@ -1,7 +1,14 @@
-/.DS_Store
-/settings_xml
+# Editors
+.idea/
+.vscode/
 
+# Eclipse
 .classpath
 .project
 .settings/
-bin/
+
+# Build files
+target/
+
+# Mac OS
+.DS_Store

@@ -27,7 +27,6 @@ import java.net.URI;
 
 /**
  * @author loreti
- *
  */
 public class UdpGateBuilder implements GateBuilder {
 

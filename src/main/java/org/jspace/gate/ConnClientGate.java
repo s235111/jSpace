@@ -36,7 +36,6 @@ import org.jspace.protocol.ServerMessage;
 
 /**
  * @author loreti
- *
  */
 public class ConnClientGate implements ClientGate {
 

@@ -28,7 +28,6 @@ import java.net.URI;
 
 /**
  * @author loreti
- *
  */
 public interface ServerGate {
 

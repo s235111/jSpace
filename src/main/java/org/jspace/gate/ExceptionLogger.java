@@ -24,7 +24,6 @@ package org.jspace.gate;
 
 /**
  * @author loreti
- *
  */
 public interface ExceptionLogger {
 

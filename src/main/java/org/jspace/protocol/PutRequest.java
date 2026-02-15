@@ -24,6 +24,5 @@ package org.jspace.protocol;
 
 /**
  * @author loreti
- *
  */
 public class PutRequest {}

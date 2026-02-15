@@ -32,7 +32,6 @@ import org.jspace.io.jSpaceMarshaller;
 
 /**
  * @author loreti
- *
  */
 public class TcpGateBuilder implements GateBuilder {
 

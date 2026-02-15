@@ -28,9 +28,6 @@ import java.util.List;
 
 import org.jspace.Tuple;
 
-/**
- *
- */
 public class ServerMessage {
 
 	public static final String CODE200 = "200";
@@ -61,16 +58,6 @@ public class ServerMessage {
 
 	private final String serverSession;
 
-	/**
-	 * @param messageType
-	 * @param interactionMode
-	 * @param statusCode
-	 * @param statusMessage
-	 * @param tuple
-	 * @param template
-	 * @param clientSession
-	 * @param serverSession
-	 */
 	public ServerMessage(
 		ServerMessageType messageType,
 		InteractionMode interactionMode,

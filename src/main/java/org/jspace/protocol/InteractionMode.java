@@ -22,9 +22,6 @@
  *******************************************************************************/
 package org.jspace.protocol;
 
-/**
- *
- */
 public enum InteractionMode {
 	KEEP,
 	CONN,

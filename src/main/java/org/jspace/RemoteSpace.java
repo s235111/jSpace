@@ -28,7 +28,6 @@ import java.net.URI;
 import java.net.UnknownHostException;
 import java.util.List;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.jspace.gate.ClientGate;
 import org.jspace.gate.GateFactory;
 import org.jspace.protocol.ClientMessage;
@@ -55,7 +54,7 @@ public class RemoteSpace implements Space {
 
 	@Override
 	public int size() {
-		throw new NotImplementedException("RemoteSpace does not support the `size()` method");
+		throw new UnsupportedOperationException("RemoteSpace does not support the `size()` method");
 	}
 
 	@Override

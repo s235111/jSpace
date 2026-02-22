@@ -234,16 +234,11 @@ public class SpaceRepository {
 	}
 
 	private ServerMessage handle(ClientMessage message) throws InterruptedException {
-		switch (message.getMessageType()) {
-			case PUT_REQUEST:
-				return ServerMessage.putResponse(put(message.getTarget(), message.getTuple().getTuple()), message.getClientSession());
-			case GET_REQUEST:
-				return handleGetRequest(message);
-			case QUERY_REQUEST:
-				return handleQueryRequest(message);
-			default:
-				return ServerMessage.badRequest(message.getClientSession());
-		}
+		return switch (message.getMessageType()) {
+			case PUT_REQUEST -> ServerMessage.putResponse(put(message.getTarget(), message.getTuple().getTuple()), message.getClientSession());
+			case GET_REQUEST -> handleGetRequest(message);
+			case QUERY_REQUEST -> handleQueryRequest(message);
+		};
 	}
 
 	private ServerMessage handleQueryRequest(ClientMessage message) {

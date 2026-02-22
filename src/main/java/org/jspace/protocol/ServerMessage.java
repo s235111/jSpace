@@ -22,8 +22,8 @@
  *******************************************************************************/
 package org.jspace.protocol;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.jspace.Tuple;
@@ -84,9 +84,9 @@ public class ServerMessage {
 	}
 
 	public List<Object[]> getTuples() {
-		LinkedList<Object[]> result = new LinkedList<>();
-		for (int i = 0; i < tuples.length; i++) {
-			result.add(tuples[i].getTuple());
+		ArrayList<Object[]> result = new ArrayList<>(tuples.length);
+		for (Tuple tuple : tuples) {
+			result.add(tuple.getTuple());
 		}
 		return result;
 	}
@@ -155,25 +155,16 @@ public class ServerMessage {
 	}
 
 	public static ServerMessage putResponse(boolean status, String clientSession) {
-		if (status) {
-			return new ServerMessage(
-				ServerMessageType.PUT_RESPONSE, // messageType
-				status, // status
-				ServerMessage.CODE200, // statusCode
-				ServerMessage.OK_STATUS, // statusMessage
-				null, // tuples
-				clientSession // clientSession
-			);
-		} else {
-			return new ServerMessage(
-				ServerMessageType.PUT_RESPONSE, // messageType
-				status, // status
-				ServerMessage.CODE400, // statusCode
-				ServerMessage.BAD_REQUEST, // statusMessage
-				null, // tuples
-				clientSession // clientSession
-			);
-		}
+		String statusCode = status ? CODE200 : CODE400;
+		String statusMessage = status ? OK_STATUS : BAD_REQUEST;
+		return new ServerMessage(
+			ServerMessageType.PUT_RESPONSE, // messageType
+			status, // status
+			statusCode, // statusCode
+			statusMessage, // statusMessage
+			null, // tuples
+			clientSession // clientSession
+		);
 	}
 
 	public static ServerMessage getResponse(List<Object[]> tuples, String clientSession) {

@@ -29,6 +29,4 @@ public enum ClientMessageType {
 	PUT_REQUEST,
 	GET_REQUEST,
 	QUERY_REQUEST,
-	ACK,
-	FAILURE,
 }

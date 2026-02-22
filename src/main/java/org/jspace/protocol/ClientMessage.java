@@ -39,8 +39,6 @@
  */
 package org.jspace.protocol;
 
-import java.net.URI;
-
 import org.jspace.Template;
 import org.jspace.Tuple;
 
@@ -51,17 +49,11 @@ public class ClientMessage {
 
 	private final ClientMessageType messageType;
 
-	private final InteractionMode interactionMode;
-
 	private String target;
 
 	private final boolean blocking;
 
 	private final boolean all;
-
-	private final String statusCode;
-
-	private final String statusMessage;
 
 	private final Tuple tuple;
 
@@ -69,53 +61,27 @@ public class ClientMessage {
 
 	private String clientSession;
 
-	private final String serverSession;
-
-	private final URI clientURI;
-
 	public ClientMessage(
 		ClientMessageType messageType,
-		InteractionMode interactionMode,
 		String target,
-		String statusCode,
-		String statusMessage,
 		Tuple tuple,
 		Template template,
 		boolean blocking,
 		boolean all,
-		String clientSession,
-		String serverSession,
-		URI clientURI
+		String clientSession
 	) {
 		super();
 		this.messageType = messageType;
-		this.interactionMode = interactionMode;
 		this.target = target;
-		this.statusCode = statusCode;
-		this.statusMessage = statusMessage;
 		this.tuple = tuple;
 		this.template = template;
 		this.clientSession = clientSession;
-		this.serverSession = serverSession;
-		this.clientURI = clientURI;
 		this.blocking = blocking;
 		this.all = all;
 	}
 
 	public ClientMessageType getMessageType() {
 		return messageType;
-	}
-
-	public InteractionMode getInteractionMode() {
-		return interactionMode;
-	}
-
-	public String getStatusCode() {
-		return statusCode;
-	}
-
-	public String getStatusMessage() {
-		return statusMessage;
 	}
 
 	public Tuple getTuple() {
@@ -130,26 +96,13 @@ public class ClientMessage {
 		return clientSession;
 	}
 
-	public String getServerSession() {
-		return serverSession;
-	}
-
-	public URI getClientURI() {
-		return clientURI;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (blocking ? 1231 : 1237);
 		result = prime * result + ((clientSession == null) ? 0 : clientSession.hashCode());
-		result = prime * result + ((clientURI == null) ? 0 : clientURI.hashCode());
-		result = prime * result + ((interactionMode == null) ? 0 : interactionMode.hashCode());
 		result = prime * result + ((messageType == null) ? 0 : messageType.hashCode());
-		result = prime * result + ((serverSession == null) ? 0 : serverSession.hashCode());
-		result = prime * result + ((statusCode == null) ? 0 : statusCode.hashCode());
-		result = prime * result + ((statusMessage == null) ? 0 : statusMessage.hashCode());
 		result = prime * result + ((target == null) ? 0 : target.hashCode());
 		result = prime * result + ((template == null) ? 0 : template.hashCode());
 		result = prime * result + ((tuple == null) ? 0 : tuple.hashCode());
@@ -172,29 +125,7 @@ public class ClientMessage {
 				return false;
 		} else if (!clientSession.equals(other.clientSession))
 			return false;
-		if (clientURI == null) {
-			if (other.clientURI != null)
-				return false;
-		} else if (!clientURI.equals(other.clientURI))
-			return false;
-		if (interactionMode != other.interactionMode)
-			return false;
 		if (messageType != other.messageType)
-			return false;
-		if (serverSession == null) {
-			if (other.serverSession != null)
-				return false;
-		} else if (!serverSession.equals(other.serverSession))
-			return false;
-		if (statusCode == null) {
-			if (other.statusCode != null)
-				return false;
-		} else if (!statusCode.equals(other.statusCode))
-			return false;
-		if (statusMessage == null) {
-			if (other.statusMessage != null)
-				return false;
-		} else if (!statusMessage.equals(other.statusMessage))
 			return false;
 		if (target == null) {
 			if (other.target != null)
@@ -217,15 +148,10 @@ public class ClientMessage {
 	@Override
 	public String toString() {
 		return "ClientMessage [" + (messageType != null ? "messageType=" + messageType + ", " : "")
-			+ (interactionMode != null ? "interactionMode=" + interactionMode + ", " : "")
 			+ (target != null ? "target=" + target + ", " : "") + "blocking=" + blocking + ", "
-			+ (statusCode != null ? "statusCode=" + statusCode + ", " : "")
-			+ (statusMessage != null ? "statusMessage=" + statusMessage + ", " : "")
 			+ (tuple != null ? "tuple=" + tuple + ", " : "")
 			+ (template != null ? "template=" + template + ", " : "")
-			+ (clientSession != null ? "clientSession=" + clientSession + ", " : "")
-			+ (serverSession != null ? "serverSession=" + serverSession + ", " : "")
-			+ (clientURI != null ? "clientURI=" + clientURI : "") + "]";
+			+ (clientSession != null ? "clientSession=" + clientSession + ", " : "") + "]";
 	}
 
 	public String getTarget() {
@@ -239,68 +165,48 @@ public class ClientMessage {
 	public static ClientMessage putRequest(Tuple t) {
 		return new ClientMessage(
 			ClientMessageType.PUT_REQUEST, // messageType
-			null, // interactionMode
 			null, // target
-			null, // statusCode
-			null, // statusMessage
 			t, // tuple
 			null, // template
 			false, // blocking
 			false, // all
-			null, // clientSession
-			null, // serverSession
-			null // clientURI
+			null // clientSession
 		);
 	}
 
 	public static ClientMessage getRequest(Template template, boolean isBlocking, boolean all) {
 		return new ClientMessage(
 			ClientMessageType.GET_REQUEST, // messageType
-			null, // interactionMode
 			null, // target
-			null, // statusCode
-			null, // statusMessage
 			null, // tuple
 			template, // template
 			isBlocking, // blocking
 			all, // all
-			null, // clientSession
-			null, // serverSession
-			null // clientURI
+			null // clientSession
 		);
 	}
 
 	public static ClientMessage queryRequest(Template template, boolean isBlocking, boolean all) {
 		return new ClientMessage(
 			ClientMessageType.QUERY_REQUEST, // messageType
-			null, // interactionMode
 			null, // target
-			null, // statusCode
-			null, // statusMessage
 			null, // tuple
 			template, // template
 			isBlocking, // blocking
 			all, // all
-			null, // clientSession
-			null, // serverSession
-			null // clientURI
+			null // clientSession
 		);
 	}
 
 	public static ClientMessage getOrQueryRequest(Template template, boolean isBlocking, boolean all, boolean isQuery) {
 		return new ClientMessage(
 			isQuery ? ClientMessageType.QUERY_REQUEST : ClientMessageType.GET_REQUEST, // messageType
-			null, // interactionMode
 			null, // target
-			null, // statusCode
-			null, // statusMessage
 			null, // tuple
 			template, // template
 			isBlocking, // blocking
 			all, // all
-			null, // clientSession
-			null, // serverSession
-			null // clientURI
+			null // clientSession
 		);
 	}
 

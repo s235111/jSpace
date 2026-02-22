@@ -24,9 +24,6 @@ package org.jspace.tests;
 
 import static org.junit.Assert.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 import org.jspace.FormalField;
 import org.jspace.Template;
 import org.jspace.Tuple;
@@ -39,39 +36,29 @@ import com.google.gson.Gson;
 public class TestjSonMessageSerialization {
 
 	@Test
-	public void testClientMessageSerialize() throws URISyntaxException {
+	public void testClientMessageSerialize() {
 		jSonUtils utils = jSonUtils.getInstance();
 		Gson gson = utils.getGson();
 		ClientMessage message = new ClientMessage(
 			ClientMessageType.PUT_REQUEST,
-			InteractionMode.KEEP,
 			"target",
-			"202",
-			"OK",
 			new Tuple(1, true, 3.0, "4"),
 			new Template(1, new FormalField(Integer.class)),
-			false, false, "clientSession",
-			"serverSession",
-			new URI("pspace://127.0.0.1:8080/test?KEEP")
+			false, false, "clientSession"
 		);
 		assertNotNull(gson.toJson(message));
 	}
 
 	@Test
-	public void testClientMessageSerializeDeserialize() throws URISyntaxException {
+	public void testClientMessageSerializeDeserialize() {
 		jSonUtils utils = jSonUtils.getInstance();
 		Gson gson = utils.getGson();
 		ClientMessage message = new ClientMessage(
 			ClientMessageType.PUT_REQUEST,
-			InteractionMode.KEEP,
 			"target",
-			"202",
-			"OK",
 			new Tuple(1, true, 3.0, "4\r\n\t\"\""),
 			new Template(1, new FormalField(Integer.class)),
-			false, false, "clientSession",
-			"serverSession",
-			new URI("pspace://127.0.0.1:8080/test?KEEP")
+			false, false, "clientSession"
 		);
 		String data = gson.toJson(message);
 		ClientMessage obtained = gson.fromJson(data, ClientMessage.class);
@@ -79,32 +66,22 @@ public class TestjSonMessageSerialization {
 	}
 
 	@Test
-	public void testClientMessageSerializeDeserializeFailure() throws URISyntaxException {
+	public void testClientMessageSerializeDeserializeFailure() {
 		jSonUtils utils = jSonUtils.getInstance();
 		Gson gson = utils.getGson();
 		ClientMessage message = new ClientMessage(
 			ClientMessageType.PUT_REQUEST,
-			InteractionMode.KEEP,
 			"target",
-			"202",
-			"OK",
 			new Tuple(1, true, 3.0, "4"),
 			new Template(1, new FormalField(Integer.class)),
-			false, false, "clientSession",
-			"serverSession",
-			new URI("pspace://127.0.0.1:8080/test?KEEP")
+			false, false, "clientSession"
 		);
 		ClientMessage message2 = new ClientMessage(
 			ClientMessageType.PUT_REQUEST,
-			InteractionMode.KEEP,
 			"targeti",
-			"202",
-			"OK",
 			new Tuple(1, true, 3.0, "4"),
 			new Template(1, new FormalField(Integer.class)),
-			false, false, "clientSession",
-			"serverSession",
-			new URI("pspace://127.0.0.1:8080/test?KEEP")
+			false, false, "clientSession"
 		);
 		String data = gson.toJson(message);
 		ClientMessage obtained = gson.fromJson(data, ClientMessage.class);
@@ -117,13 +94,11 @@ public class TestjSonMessageSerialization {
 		Gson gson = utils.getGson();
 		ServerMessage message = new ServerMessage(
 			ServerMessageType.GET_RESPONSE,
-			InteractionMode.CONN,
 			true,
 			"202",
 			"OK",
 			new Tuple[] { new Tuple(1, 2, 3), new Tuple(2, 3, 4) },
-			"clientSession",
-			"serverSession"
+			"clientSession"
 		);
 		assertNotNull(gson.toJson(message));
 	}
@@ -134,13 +109,11 @@ public class TestjSonMessageSerialization {
 		Gson gson = utils.getGson();
 		ServerMessage message = new ServerMessage(
 			ServerMessageType.GET_RESPONSE,
-			InteractionMode.CONN,
 			true,
 			"202",
 			"OK",
 			new Tuple[] { new Tuple(1, 2, 3), new Tuple(2, 3, 4) },
-			"clientSession",
-			"serverSession"
+			"clientSession"
 		);
 		String data = gson.toJson(message);
 		ServerMessage obtained = gson.fromJson(data, ServerMessage.class);

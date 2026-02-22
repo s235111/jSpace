@@ -52,7 +52,7 @@ public class FormalField implements TemplateField {
 	@Override
 	public boolean match(Object o) {
 		Object value = o;
-		if (value == null) { //TODO: Are 'null' values allowed in Tuples?
+		if (value == null) { // TODO: Are 'null' values allowed in Tuples?
 			return false;
 		}
 		if (value instanceof ActualField) {

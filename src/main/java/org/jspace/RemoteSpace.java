@@ -63,7 +63,7 @@ public class RemoteSpace implements Space {
 		try {
 			response = gate.send(ClientMessage.putRequest(new Tuple(fields)));
 		} catch (IOException e) {
-			//TODO: Replace with a specific exception
+			// TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
 		}
 		return response.isSuccessful();
@@ -84,7 +84,7 @@ public class RemoteSpace implements Space {
 		try {
 			response = gate.send(ClientMessage.getRequest(template, isBlocking, false));
 		} catch (IOException e) {
-			//TODO: Replace with a specific exception
+			// TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
 		}
 
@@ -106,7 +106,7 @@ public class RemoteSpace implements Space {
 		try {
 			response = gate.send(ClientMessage.getRequest(new Template(fields), false, true));
 		} catch (IOException e) {
-			//TODO: Replace with a specific exception
+			// TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
 		}
 
@@ -153,7 +153,7 @@ public class RemoteSpace implements Space {
 		try {
 			response = gate.send(ClientMessage.queryRequest(new Template(fields), false, true));
 		} catch (IOException e) {
-			//TODO: Replace with a specific exception
+			// TODO: Replace with a specific exception
 			throw new InterruptedException(e.getMessage());
 		}
 

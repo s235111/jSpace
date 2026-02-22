@@ -66,8 +66,8 @@ public class TcpGateBuilder implements GateBuilder {
 		if (query.containsKey(CONN_MODE)) {
 			return new ConnClientGate(marshaller, host, port, target);
 		}
-		//TODO: Add here other modes!
-		//Default mode
+		// TODO: Add here other modes!
+		// Default mode
 		return new KeepClientGate(marshaller, host, port, target);
 	}
 
@@ -90,7 +90,7 @@ public class TcpGateBuilder implements GateBuilder {
 		if (query.containsKey(CONN_MODE)) {
 			return new ConnServerGate(marshaller, new InetSocketAddress(host, port), DEFAULT_BACKLOG);
 		}
-		//TODO: Add here other modes!
+		// TODO: Add here other modes!
 		return new KeepServerGate(marshaller, new InetSocketAddress(host, port), DEFAULT_BACKLOG);
 	}
 

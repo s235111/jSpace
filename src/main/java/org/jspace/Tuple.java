@@ -130,7 +130,7 @@ public final class Tuple implements Iterable<Object>, Serializable {
 
 	@Override
 	public Iterator<Object> iterator() {
-		return new Iterator<Object>() {
+		return new Iterator<>() {
 
 			private int current = 0;
 

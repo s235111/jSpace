@@ -45,7 +45,7 @@ import org.jspace.protocol.ServerMessage;
  */
 public class SpaceRepository {
 
-	private final HashMap<String, Space> spaces = new HashMap<String, Space>();
+	private final HashMap<String, Space> spaces = new HashMap<>();
 	private ExecutorService executor = Executors.newCachedThreadPool();
 	private GateFactory gateFactory;
 	private LinkedList<ServerGate> gates = new LinkedList<>();

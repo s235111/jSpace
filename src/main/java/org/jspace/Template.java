@@ -114,7 +114,7 @@ public final class Template implements Iterable<TemplateField>, Serializable {
 
 	@Override
 	public Iterator<TemplateField> iterator() {
-		return new Iterator<TemplateField>() {
+		return new Iterator<>() {
 
 			private int current = 0;
 

@@ -98,7 +98,7 @@ public class SequentialSpace implements Space {
 	}
 
 	protected synchronized LinkedList<Object[]> findAllTuples(Template template, boolean toRemove) {
-		LinkedList<Object[]> result = new LinkedList<Object[]>();
+		LinkedList<Object[]> result = new LinkedList<>();
 		Iterator<Tuple> tuplesIterator = tuples.iterator();
 		Tuple t;
 		while (tuplesIterator.hasNext()) {

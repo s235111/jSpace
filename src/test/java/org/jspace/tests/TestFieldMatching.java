@@ -47,9 +47,9 @@ public class TestFieldMatching {
 
 	@Test
 	public void testActualCollection() {
-		LinkedList<Integer> l1 = new LinkedList<Integer>();
+		LinkedList<Integer> l1 = new LinkedList<>();
 		l1.add(1);
-		LinkedList<Integer> l2 = new LinkedList<Integer>();
+		LinkedList<Integer> l2 = new LinkedList<>();
 		l2.add(1);
 		ActualField f1 = new ActualField(l1);
 		assertTrue(f1.match(l2));
@@ -57,8 +57,8 @@ public class TestFieldMatching {
 
 	@Test
 	public void testActualEmptyCollection() {
-		LinkedList<String> l1 = new LinkedList<String>();
-		LinkedList<Integer> l2 = new LinkedList<Integer>();
+		LinkedList<String> l1 = new LinkedList<>();
+		LinkedList<Integer> l2 = new LinkedList<>();
 		ActualField f1 = new ActualField(l1);
 		assertTrue(f1.match(l2));
 	}

@@ -53,7 +53,7 @@ public class SpaceRepository {
 	private ExceptionLogger logger = null;
 
 	/**
-	 * Creates a new respository.
+	 * Creates a new repository.
 	 */
 	public SpaceRepository() {
 		this.gateFactory = GateFactory.getInstance();
@@ -329,7 +329,7 @@ public class SpaceRepository {
 	 * Adds a tuple in the space.
 	 *
 	 * @param target target space
-	 * @param fields fields fields of inserted tuple
+	 * @param fields fields of inserted tuple
 	 * @return true if the action has been successfully executed false otherwise.
 	 * @throws InterruptedException if any thread interrupted the current thread before
 	 *                              the action is executed.

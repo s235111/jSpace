@@ -66,7 +66,7 @@ public final class Template implements Iterable<TemplateField>, Serializable {
 	}
 
 	/**
-	 * Check if tuple <code>t</code> matches the tempalte.
+	 * Check if tuple <code>t</code> matches the template.
 	 *
 	 * @param t tuple to match
 	 * @return <code>true</code> if the tuple matches against this template,

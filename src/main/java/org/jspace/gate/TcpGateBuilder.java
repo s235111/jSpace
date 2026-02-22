@@ -97,7 +97,7 @@ public class TcpGateBuilder implements GateBuilder {
 	public jSpaceMarshaller getMarshaller(String code) {
 		MarshalFactory mf = MarshalFactory.getInstance();
 		if (code == null) {
-			code = MarshalFactory.DEFAULT_LANGAUGE;
+			code = MarshalFactory.DEFAULT_LANGUAGE;
 		}
 		return mf.getMarshaller(code);
 	}

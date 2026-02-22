@@ -35,7 +35,7 @@ public class MarshalFactory {
 
 	public final static String JSON_CODE = "json";
 
-	public final static String DEFAULT_LANGAUGE = JSON_CODE;
+	public final static String DEFAULT_LANGUAGE = JSON_CODE;
 
 	private final HashMap<String, Class<? extends jSpaceMarshaller>> table;
 
@@ -71,7 +71,7 @@ public class MarshalFactory {
 		return instance;
 	}
 
-	public jSpaceMarshaller getDeaultMarshaller() {
-		return getMarshaller(DEFAULT_LANGAUGE);
+	public jSpaceMarshaller getDefaultMarshaller() {
+		return getMarshaller(DEFAULT_LANGUAGE);
 	}
 }

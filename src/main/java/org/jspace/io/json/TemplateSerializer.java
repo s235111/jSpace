@@ -46,7 +46,7 @@ public class TemplateSerializer implements JsonSerializer<Template> {
 		JsonArray toReturn = new JsonArray();
 		jSonUtils utils = jSonUtils.getInstance();
 		for (TemplateField f : src) {
-			toReturn.add(utils.jsonFromTeplate(f, context));
+			toReturn.add(utils.jsonFromTemplate(f, context));
 		}
 		return toReturn;
 	}

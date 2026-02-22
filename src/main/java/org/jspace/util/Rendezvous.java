@@ -30,7 +30,7 @@ import java.util.HashSet;
  * This mechanism allows two threads to exchange a single datum while synchronizing.
  *
  * One thread try to receive a value ({@link #call(T)}) for a given tag and waits until another
- * thread provides a datum with a matching tag ({@link #set(T, V)}). Then, the waiting thread is awaked and the provided value
+ * thread provides a datum with a matching tag ({@link #set(T, V)}). Then, the waiting thread is awakened and the provided value
  * is returned. The tag is deleted just after the synchronization is completed.
  *
  * Finally, it is assumed that two synchronizations with the same tag cannot be performed. In case, a {@link IllegalStateException} is

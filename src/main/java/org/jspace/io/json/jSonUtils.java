@@ -38,17 +38,17 @@ import com.google.gson.*;
 public class jSonUtils {
 
 	/**
-	 * Json tag indicating if a template field is a formal or an actual.
+	 * JSON tag indicating if a template field is a formal or an actual.
 	 */
 	public static final String FORMAL_ID = "formal";
 
 	/**
-	 * Json tag associated to string referring to {@link Class} names.
+	 * JSON tag associated to string referring to {@link Class} names.
 	 */
 	public static final String TYPE_ID = "type";
 
 	/**
-	 * Json tag associated to generic objects. The type of the specific object
+	 * JSON tag associated to generic objects. The type of the specific object
 	 * is determined by relying on attribute {@link jSonUtils#TYPE_ID}
 	 */
 	public static final String VALUE_ID = "value";
@@ -57,11 +57,11 @@ public class jSonUtils {
 
 	private final GsonBuilder builder;
 
-	private final ClassDictionary dicionary;
+	private final ClassDictionary dictionary;
 
 	private jSonUtils() {
 		this.builder = new GsonBuilder();
-		this.dicionary = new ClassDictionary();
+		this.dictionary = new ClassDictionary();
 		init();
 	}
 
@@ -124,11 +124,11 @@ public class jSonUtils {
 	 *
 	 * @param o       object to serialize
 	 * @param context Context for serialization
-	 * @return a json representation of o
+	 * @return a JSON representation of o
 	 */
 	public JsonElement jsonFromObject(Object o, JsonSerializationContext context) {
 		JsonObject json = new JsonObject();
-		json.add(jSonUtils.TYPE_ID, new JsonPrimitive(dicionary.getURI(o.getClass())));
+		json.add(jSonUtils.TYPE_ID, new JsonPrimitive(dictionary.getURI(o.getClass())));
 		json.add(jSonUtils.VALUE_ID, context.serialize(o));
 		return json;
 	}
@@ -145,7 +145,7 @@ public class jSonUtils {
 	 *
 	 * @param json    element to deserialize
 	 * @param context context for serialization
-	 * @return the object represented by json
+	 * @return the object represented by JSON
 	 */
 	public Object objectFromJson(JsonElement json, JsonDeserializationContext context) {
 		if (!json.isJsonObject()) {
@@ -157,14 +157,14 @@ public class jSonUtils {
 		}
 		String uri = jo.get(TYPE_ID).getAsString();
 		try {
-			Class<?> c = dicionary.getClass(uri);
+			Class<?> c = dictionary.getClass(uri);
 			return context.deserialize(jo.get(VALUE_ID), c);
 		} catch (ClassNotFoundException e) {
 			throw new JsonParseException(e);
 		}
 	}
 
-	public JsonElement jsonFromTeplate(TemplateField field, JsonSerializationContext context) {
+	public JsonElement jsonFromTemplate(TemplateField field, JsonSerializationContext context) {
 		if (field instanceof ActualField) {
 			ActualField af = (ActualField) field;
 			JsonObject json = new JsonObject();
@@ -175,7 +175,7 @@ public class jSonUtils {
 			FormalField ff = (FormalField) field;
 			JsonObject json = new JsonObject();
 			json.add(jSonUtils.FORMAL_ID, new JsonPrimitive(true));
-			json.add(jSonUtils.VALUE_ID, new JsonPrimitive(dicionary.getURI(ff.getFormalFieldType())));
+			json.add(jSonUtils.VALUE_ID, new JsonPrimitive(dictionary.getURI(ff.getFormalFieldType())));
 			return json;
 		}
 	}
@@ -191,7 +191,7 @@ public class jSonUtils {
 		boolean isFormal = jo.get(FORMAL_ID).getAsBoolean();
 		if (isFormal) {
 			try {
-				return new FormalField(dicionary.getClass(jo.get(VALUE_ID).getAsString()));
+				return new FormalField(dictionary.getClass(jo.get(VALUE_ID).getAsString()));
 			} catch (ClassNotFoundException e) {
 				throw new JsonParseException(e);
 			}
@@ -205,7 +205,7 @@ public class jSonUtils {
 	}
 
 	public <T> void register(String uri, Class<T> clazz, JsonSerializer<T> serializer, JsonDeserializer<T> deserializer) {
-		this.dicionary.register(uri, clazz);
+		this.dictionary.register(uri, clazz);
 		if (serializer != null) {
 			builder.registerTypeAdapter(clazz, serializer);
 		}

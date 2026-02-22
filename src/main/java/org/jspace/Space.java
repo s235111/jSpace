@@ -76,7 +76,7 @@ public interface Space {
 	 * <li> for any <code>i</code>, <code>fields[i].match(return[i])==true</code>.
 	 * </ul>
 	 *
-	 * If a tuple matching the requested tempalte is not found, <code>null</code> is returned.
+	 * If a tuple matching the requested template is not found, <code>null</code> is returned.
 	 *
 	 * @param fields an array of template fields representing a template
 	 * @return a tuple matching the template or <code>null</code> if no tuple matches the template

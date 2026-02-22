@@ -55,7 +55,7 @@ public class ConnClientGate implements ClientGate {
 	public ServerMessage send(ClientMessage m) throws InterruptedException, UnknownHostException, IOException {
 		ConnInteractionHandler handler = new ConnInteractionHandler();
 		new Thread(() -> handler.send(m)).start();
-		return handler.getResponce();
+		return handler.getResponse();
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class ConnClientGate implements ClientGate {
 			notifyAll();
 		}
 
-		public synchronized ServerMessage getResponce() throws InterruptedException, IOException {
+		public synchronized ServerMessage getResponse() throws InterruptedException, IOException {
 			while ((message == null) && (exception == null)) {
 				wait();
 			}

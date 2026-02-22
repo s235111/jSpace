@@ -287,6 +287,23 @@ public class ClientMessage {
 		);
 	}
 
+	public static ClientMessage getOrQueryRequest(Template template, boolean isBlocking, boolean all, boolean isQuery) {
+		return new ClientMessage(
+			isQuery ? ClientMessageType.QUERY_REQUEST : ClientMessageType.GET_REQUEST, // messageType
+			null, // interactionMode
+			null, // target
+			null, // statusCode
+			null, // statusMessage
+			null, // tuple
+			template, // template
+			isBlocking, // blocking
+			all, // all
+			null, // clientSession
+			null, // serverSession
+			null // clientURI
+		);
+	}
+
 	public boolean isBlocking() {
 		return blocking;
 	}

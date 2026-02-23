@@ -38,6 +38,10 @@ public class ServerMessage {
 
 	public static final String BAD_REQUEST = "Bad Request";
 
+	public static final String CODE404 = "404";
+
+	public static final String NOT_FOUND = "Not Found";
+
 	public static final String CODE500 = "500";
 
 	public static final String SERVER_ERROR = "Internal Server Error";
@@ -178,6 +182,17 @@ public class ServerMessage {
 		);
 	}
 
+	public static ServerMessage queryResponse(List<Object[]> tuples, String clientSession) {
+		return new ServerMessage(
+			ServerMessageType.QUERY_RESPONSE, // messageType
+			true, // status
+			ServerMessage.CODE200, // statusCode
+			ServerMessage.OK_STATUS, // statusMessage
+			toListOfTuples(tuples), // tuples
+			clientSession // clientSession
+		);
+	}
+
 	private static Tuple[] toListOfTuples(List<Object[]> tuples) {
 		Tuple[] result = new Tuple[tuples.size()];
 		int count = 0;
@@ -193,6 +208,17 @@ public class ServerMessage {
 			false, // status
 			ServerMessage.CODE400, // statusCode
 			ServerMessage.BAD_REQUEST, // statusMessage
+			null, // tuples
+			clientSession // clientSession
+		);
+	}
+
+	public static ServerMessage notFound(String clientSession) {
+		return new ServerMessage(
+			ServerMessageType.FAILURE, // messageType
+			false, // status
+			ServerMessage.CODE404, // statusCode
+			ServerMessage.NOT_FOUND, // statusMessage
 			null, // tuples
 			clientSession // clientSession
 		);

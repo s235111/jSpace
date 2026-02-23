@@ -251,9 +251,9 @@ public class SpaceRepository {
 		try {
 			tuples = query(message.getTemplate(), message.isBlocking(), message.getAll(), message.getTarget());
 			if (tuples != null) {
-				return ServerMessage.getResponse(tuples, message.getClientSession());
+				return ServerMessage.queryResponse(tuples, message.getClientSession());
 			} else {
-				return ServerMessage.badRequest(message.getClientSession());
+				return ServerMessage.notFound(message.getClientSession());
 			}
 		} catch (InterruptedException e) {
 			return ServerMessage.internalServerError();
@@ -271,7 +271,7 @@ public class SpaceRepository {
 			if (tuples != null) {
 				return ServerMessage.getResponse(tuples, message.getClientSession());
 			} else {
-				return ServerMessage.badRequest(message.getClientSession());
+				return ServerMessage.notFound(message.getClientSession());
 			}
 		} catch (InterruptedException e) {
 			return ServerMessage.internalServerError();
